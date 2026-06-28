@@ -105,18 +105,18 @@ const WhyUs = () => {
               <div
                 key={f.title}
                 data-testid={WHY.item}
-                className="group relative border border-white/10 bg-black/30 p-7 backdrop-blur-sm transition-all duration-300 hover:border-[hsl(43,74%,49%,0.4)] hover:bg-black/40"
+                className="group relative border border-white/10 bg-black/30 p-7 text-center backdrop-blur-sm transition-all duration-300 hover:border-[hsl(43,74%,49%,0.4)] hover:bg-black/40"
               >
                 <span className="absolute right-5 top-5 font-display text-xs text-white/20">
                   0{idx + 1}
                 </span>
-                <div className="flex h-11 w-11 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)]">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)]">
                   <Icon className="h-5 w-5 text-[hsl(43,74%,55%)]" />
                 </div>
                 <h3 className="mt-6 font-display text-xl font-semibold text-white">
                   {f.title}
                 </h3>
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-5 inline-flex flex-col items-start space-y-2.5 text-left">
                   {f.points.map((p) => (
                     <li
                       key={p}

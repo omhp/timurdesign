@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { FOOTER } from "../constants/testIds";
 import {
   WHATSAPP_URL,
@@ -101,17 +101,6 @@ const Footer = () => {
                 >
                   <Mail className="h-4 w-4 text-[hsl(43,74%,55%)]" />
                   {EMAIL}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 transition-colors hover:text-white"
-                >
-                  <Instagram className="h-4 w-4 text-[hsl(43,74%,55%)]" />
-                  @timurdesign
                 </a>
               </li>
             </ul>

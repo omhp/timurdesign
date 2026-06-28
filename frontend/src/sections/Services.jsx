@@ -1,9 +1,8 @@
 import React from "react";
 import {
   Home,
-  Hammer,
+  PencilRuler,
   Sofa,
-  ChefHat,
   Building2,
   ArrowUpRight,
 } from "lucide-react";
@@ -12,25 +11,18 @@ import { buildWaUrl } from "../constants/brand";
 
 const items = [
   {
-    icon: Hammer,
-    title: "Jasa Tukang Borongan",
-    desc: "Tukang berpengalaman dengan sistem borongan yang jelas. Anda tahu persis apa yang dibayar.",
-    points: ["Tukang ahli di bidangnya", "Harga jelas sejak awal", "Diawasi setiap hari"],
-    msg: "Halo Timur Design, saya tertarik dengan jasa tukang bangunan borongan.",
-  },
-  {
     icon: Home,
     title: "Bangun & Renovasi Rumah",
-    desc: "Dari tanah kosong sampai renovasi total. Desain, struktur, listrik-air, sampai finishing — semua satu tim.",
+    desc: "Dari tanah kosong sampai renovasi total. Desain, struktur, listrik-air, sampai penyelesaian akhir — semua satu tim.",
     points: ["Gambar 3D + rincian biaya", "Garansi 1 tahun", "Laporan progres tiap minggu"],
     msg: "Halo Timur Design, saya tertarik konsultasi bangun/renovasi rumah.",
   },
   {
-    icon: ChefHat,
-    title: "Kitchen Set Custom",
-    desc: "Dapur custom yang pas ukuran, nyaman dipakai, dan rapi sampai detail terkecil.",
-    points: ["Ukuran & layout custom", "Pilihan material lengkap", "Pemasangan rapi"],
-    msg: "Halo Timur Design, saya tertarik pembuatan kitchen set.",
+    icon: PencilRuler,
+    title: "Jasa Arsitek Desain",
+    desc: "Desain rumah, villa, toko, atau kantor. Konsep arsitektur, denah 2D, model 3D, dan gambar teknis siap bangun.",
+    points: ["Rumah, villa, toko, kantor", "Denah 2D + model 3D", "Gambar teknis lengkap"],
+    msg: "Halo Timur Design, saya tertarik jasa arsitek desain (rumah/villa/toko/kantor).",
   },
   {
     icon: Sofa,
@@ -67,12 +59,12 @@ const Services = () => {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/60">
-            Lima layanan inti, semua dikerjakan oleh tim sendiri. Tidak
+            Empat layanan inti, semua dikerjakan oleh tim sendiri. Tidak
             kami serahkan ke pihak luar yang tidak kami kenal.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-14 grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((s) => {
             const Icon = s.icon;
             return (
@@ -82,21 +74,19 @@ const Services = () => {
                 href={buildWaUrl(s.msg)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex flex-col bg-[hsl(220,15%,5%)] p-7 transition-colors duration-300 hover:bg-[hsl(220,15%,7%)]"
+                className="group relative flex flex-col items-center bg-[hsl(220,15%,5%)] p-7 text-center transition-colors duration-300 hover:bg-[hsl(220,15%,7%)]"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex h-11 w-11 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)] transition-all duration-300 group-hover:border-[hsl(43,74%,55%)] group-hover:bg-[hsl(43,74%,49%,0.15)]">
-                    <Icon className="h-5 w-5 text-[hsl(43,74%,55%)]" />
-                  </div>
-                  <ArrowUpRight className="h-5 w-5 text-white/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(43,74%,55%)]" />
+                <ArrowUpRight className="absolute right-5 top-5 h-5 w-5 text-white/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(43,74%,55%)]" />
+                <div className="mt-2 flex h-12 w-12 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)] transition-all duration-300 group-hover:border-[hsl(43,74%,55%)] group-hover:bg-[hsl(43,74%,49%,0.15)]">
+                  <Icon className="h-5 w-5 text-[hsl(43,74%,55%)]" />
                 </div>
-                <h3 className="mt-7 font-display text-xl font-semibold text-white">
+                <h3 className="mt-6 font-display text-xl font-semibold text-white">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-white/60">
                   {s.desc}
                 </p>
-                <ul className="mt-6 space-y-2">
+                <ul className="mt-6 flex flex-col items-center space-y-2">
                   {s.points.map((p) => (
                     <li
                       key={p}
