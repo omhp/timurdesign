@@ -20,15 +20,15 @@ const projects = [
   },
   {
     title: "Industrial",
-    desc: "Beton ekspos, baja hitam, dan sentuhan kayu untuk kesan urban.",
+    desc: "Gaya kantor / ruang kerja dengan bata ekspos, baja, dan kesan urban.",
     size: "210 m²",
-    img: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1758380388980-019b6c575b41?auto=format&fit=crop&w=1200&q=70",
   },
   {
     title: "Skandinavia",
-    desc: "Putih bersih, kayu terang, atap miring khas Eropa Utara.",
+    desc: "Kayu hangat, garis sederhana, atap miring — disesuaikan untuk iklim Indonesia.",
     size: "150 m²",
-    img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1704307023984-813727deade9?auto=format&fit=crop&w=1200&q=70",
   },
   {
     title: "Mediterania",
@@ -37,10 +37,10 @@ const projects = [
     img: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Japandi",
-    desc: "Perpaduan Jepang & Skandinavia — tenang, hangat, dan minimalis.",
-    size: "165 m²",
-    img: "https://images.unsplash.com/photo-1613553474179-e1eda3ea5734?auto=format&fit=crop&w=1200&q=70",
+    title: "Villa Bali Tradisional",
+    desc: "Atap ilalang, ornamen ukir, dan material alami khas budaya Bali.",
+    size: "260 m²",
+    img: "https://images.unsplash.com/photo-1710563138874-4bac91c14e51?auto=format&fit=crop&w=1200&q=70",
   },
 ];
 
@@ -63,8 +63,8 @@ const Portfolio = () => {
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
               Beberapa proyek yang sudah kami selesaikan — dengan beragam gaya,
-              mulai dari Tropis Modern hingga Japandi. Lihat referensi yang
-              paling cocok dengan selera Anda.
+              mulai dari Tropis Modern hingga Villa Bali Tradisional. Lihat
+              referensi yang paling cocok dengan selera Anda.
             </p>
           </div>
           <a
