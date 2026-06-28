@@ -14,7 +14,7 @@ import { Button } from "../components/ui/button";
 import { HERO } from "../constants/testIds";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBob21lJTIwZXh0ZXJpb3IlMjBkdXNrfGVufDB8fHx8MTc4MjYyNDgyM3ww&ixlib=rb-4.1.0&q=85";
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=75";
 
 import { WHATSAPP_URL, PHONE_DISPLAY, SERVICE_CITIES } from "../constants/brand";
 
@@ -90,6 +90,9 @@ const Hero = () => {
           <nav className="hidden items-center gap-10 text-sm text-white/70 md:flex">
             <a href="#layanan" className="hover:text-white transition-colors">
               Layanan
+            </a>
+            <a href="#estimasi" className="hover:text-white transition-colors">
+              Estimasi
             </a>
             <a href="#proyek" className="hover:text-white transition-colors">
               Proyek
@@ -194,11 +197,11 @@ const Hero = () => {
               </a>
 
               <a
-                href="#proyek"
+                href="#estimasi"
                 data-testid={HERO.ctaSecondary}
                 className="group inline-flex items-center gap-2 px-2 py-2 text-sm uppercase tracking-luxe text-white/70 transition-colors hover:text-white"
               >
-                Lihat Portofolio
+                Hitung Estimasi (AI)
                 <span className="ml-1 inline-block h-px w-8 bg-white/40 transition-all duration-300 group-hover:w-12 group-hover:bg-[hsl(43,74%,55%)]" />
               </a>
             </motion.div>

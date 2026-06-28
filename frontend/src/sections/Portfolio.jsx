@@ -9,7 +9,7 @@ const projects = [
     type: "Bangun Baru",
     city: "Bali",
     size: "240 m²",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1613553474179-e1eda3ea5734?auto=format&fit=crop&w=1200&q=70",
   },
   {
     title: "Rumah Tropis Pakuwon",
@@ -44,7 +44,7 @@ const projects = [
     type: "Bangun Baru",
     city: "Bali",
     size: "410 m²",
-    img: "https://images.unsplash.com/photo-1613553474179-e1eda3ea5734?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=70",
   },
 ];
 

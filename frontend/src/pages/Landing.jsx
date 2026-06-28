@@ -3,8 +3,8 @@ import Hero from "../components/Hero";
 import Services from "../sections/Services";
 import WhyUs from "../sections/WhyUs";
 import Process from "../sections/Process";
+import Estimator from "../sections/Estimator";
 import Portfolio from "../sections/Portfolio";
-import Coverage from "../sections/Coverage";
 import Testimonials from "../sections/Testimonials";
 import FAQSection from "../sections/FAQSection";
 import CTABand from "../sections/CTABand";
@@ -18,8 +18,8 @@ const Landing = () => {
       <Services />
       <WhyUs />
       <Process />
+      <Estimator />
       <Portfolio />
-      <Coverage />
       <Testimonials />
       <FAQSection />
       <CTABand />

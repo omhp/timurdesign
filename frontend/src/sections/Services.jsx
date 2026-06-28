@@ -1,36 +1,50 @@
 import React from "react";
-import { Home, Hammer, Sofa, FileText, ArrowUpRight } from "lucide-react";
+import {
+  Home,
+  Hammer,
+  Sofa,
+  ChefHat,
+  Building2,
+  ArrowUpRight,
+} from "lucide-react";
 import { SERVICES } from "../constants/testIds";
 import { buildWaUrl } from "../constants/brand";
 
 const items = [
   {
-    icon: Home,
-    title: "Bangun Rumah Baru",
-    desc: "Dari kavling kosong jadi rumah impian. Arsitektur, struktur, MEP, finishing — satu pintu, satu kontrak.",
-    points: ["Desain arsitektur 3D", "RAB transparan", "Garansi 1 tahun"],
-    msg: "Halo Timur Design, saya tertarik konsultasi bangun rumah baru.",
+    icon: Hammer,
+    title: "Jasa Tukang Borongan",
+    desc: "Tenaga tukang terkurasi dengan sistem borongan transparan. Anda tahu persis apa yang dibayar.",
+    points: ["Tukang ahli per bidang", "Sistem borongan jelas", "Pengawasan harian"],
+    msg: "Halo Timur Design, saya tertarik dengan jasa tukang bangunan borongan.",
   },
   {
-    icon: Hammer,
-    title: "Renovasi Rumah",
-    desc: "Ubah total atau tambah lantai tanpa stress. Kami audit dulu, baru kerjakan — supaya hasilnya tidak setengah jadi.",
-    points: ["Audit kondisi awal", "Jadwal jelas per fase", "Tanpa biaya tersembunyi"],
-    msg: "Halo Timur Design, saya tertarik konsultasi renovasi rumah.",
+    icon: Home,
+    title: "Bangun & Renovasi Rumah",
+    desc: "Dari kavling kosong hingga renovasi total. Arsitektur, struktur, MEP, finishing — satu pintu, satu kontrak.",
+    points: ["Desain 3D + RAB", "Garansi 1 tahun", "Laporan progres mingguan"],
+    msg: "Halo Timur Design, saya tertarik konsultasi bangun/renovasi rumah.",
+  },
+  {
+    icon: ChefHat,
+    title: "Kitchen Set Custom",
+    desc: "Kitchen set custom dengan material berkualitas, layout ergonomis, dan finishing rapi sampai detail terkecil.",
+    points: ["Custom ukuran & layout", "Material HPL/duco/solid", "Pemasangan rapi"],
+    msg: "Halo Timur Design, saya tertarik pembuatan kitchen set.",
   },
   {
     icon: Sofa,
     title: "Desain Interior",
-    desc: "Interior yang nyaman dipakai, bukan cuma cantik di foto. Custom furniture, lighting, dan styling.",
+    desc: "Interior yang nyaman dipakai, bukan cuma cantik di foto. Custom furniture, lighting, dan styling lengkap.",
     points: ["Moodboard & 3D render", "Custom furniture", "Styling lengkap"],
-    msg: "Halo Timur Design, saya tertarik konsultasi desain interior.",
+    msg: "Halo Timur Design, saya tertarik jasa desain interior.",
   },
   {
-    icon: FileText,
-    title: "Konsultasi & RAB",
-    desc: "Belum siap eksekusi? Mulai dari konsultasi desain & Rencana Anggaran Biaya yang detail dan realistis.",
-    points: ["Konsultasi 1-on-1", "RAB detail per item", "Rekomendasi material"],
-    msg: "Halo Timur Design, saya tertarik konsultasi & RAB.",
+    icon: Building2,
+    title: "Desain Eksterior & Fasad",
+    desc: "Fasad rumah yang berkarakter — modern tropis, klasik, atau kontemporer. Sesuai kepribadian Anda.",
+    points: ["Konsep arsitektur", "Material fasad pilihan", "Lighting eksterior"],
+    msg: "Halo Timur Design, saya tertarik jasa desain eksterior / fasad.",
   },
 ];
 
@@ -53,12 +67,12 @@ const Services = () => {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/60">
-            Empat layanan inti, semua dikerjakan oleh tim internal Timur Design.
+            Lima layanan inti, semua dikerjakan oleh tim internal Timur Design.
             Tidak kami sub-kontrakkan ke pihak yang tidak kami kenal.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-px bg-white/5 sm:grid-cols-2 lg:grid-cols-5">
           {items.map((s) => {
             const Icon = s.icon;
             return (
