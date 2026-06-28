@@ -127,9 +127,9 @@ const Hero = () => {
               data-testid={HERO.headline}
               className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-balance text-white sm:text-6xl lg:text-[5.25rem]"
             >
-              Bangun Rumah Impian
+              Jasa Kontraktor Rumah
               <br />
-              <span className="italic font-medium text-white/90">Anda, </span>
+              <span className="italic font-medium text-white/90">Impian Anda, </span>
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-[hsl(43,74%,65%)] via-[hsl(43,74%,55%)] to-[hsl(43,74%,45%)] bg-clip-text text-transparent">
                   Tanpa Drama.
@@ -209,7 +209,7 @@ const Hero = () => {
                 — Mengapa Timur Design
               </p>
               <h3 className="mt-3 font-display text-2xl font-semibold leading-snug text-white">
-                Beda dari kontraktor biasa.
+                Jasa Kontraktor Rumah yang beda.
               </h3>
 
               <ul className="mt-7 space-y-5">

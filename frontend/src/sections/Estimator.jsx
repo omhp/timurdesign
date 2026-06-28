@@ -146,7 +146,7 @@ const Estimator = () => {
               </span>
             </div>
             <h2 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-              Estimasi Biaya{" "}
+              Estimasi Biaya Jasa Kontraktor Rumah{" "}
               <span className="italic text-[hsl(43,74%,55%)]">30 detik.</span>
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/65 sm:text-base">
