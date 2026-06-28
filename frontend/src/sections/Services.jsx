@@ -54,8 +54,8 @@ const Services = () => {
               — Layanan Kami
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-              Jasa Kontraktor Rumah dalam{" "}
-              <span className="italic text-white/80">Satu Kontrak. Tanpa Drama.</span>
+              Wujudkan rumah impian Anda —{" "}
+              <span className="italic text-white/80">kami urus semua.</span>
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/60">

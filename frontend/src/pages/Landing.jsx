@@ -7,6 +7,7 @@ import Estimator from "../sections/Estimator";
 import Portfolio from "../sections/Portfolio";
 import Testimonials from "../sections/Testimonials";
 import FAQSection from "../sections/FAQSection";
+import Blog from "../sections/Blog";
 import CTABand from "../sections/CTABand";
 import Footer from "../sections/Footer";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
@@ -22,6 +23,7 @@ const Landing = () => {
       <Portfolio />
       <Testimonials />
       <FAQSection />
+      <Blog />
       <CTABand />
       <Footer />
       <FloatingWhatsApp />

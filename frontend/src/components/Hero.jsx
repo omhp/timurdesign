@@ -98,6 +98,9 @@ const Hero = () => {
             <a href="#portofolio" className="hover:text-white transition-colors">
               Portofolio
             </a>
+            <a href="#artikel" className="hover:text-white transition-colors">
+              Artikel
+            </a>
             <a href="#kontak" className="hover:text-white transition-colors">
               Kontak
             </a>
@@ -127,12 +130,17 @@ const Hero = () => {
               data-testid={HERO.headline}
               className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-balance text-white sm:text-6xl lg:text-[5.25rem]"
             >
-              Jasa Kontraktor Rumah
-              <br />
-              <span className="italic font-medium text-white/90">Impian Anda, </span>
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-[hsl(43,74%,65%)] via-[hsl(43,74%,55%)] to-[hsl(43,74%,45%)] bg-clip-text text-transparent">
-                  Tanpa Drama.
+              <span className="mb-5 inline-flex items-center gap-2 border border-[hsl(43,74%,55%)]/40 bg-black/40 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-luxe text-[hsl(43,74%,75%)] backdrop-blur-md sm:text-xs">
+                Jasa Kontraktor Rumah
+              </span>
+              <span className="block">
+                Bangun Rumah Impian Anda
+                <br />
+                <span className="italic font-medium text-white/90">Tanpa Banyak </span>
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-[hsl(43,74%,65%)] via-[hsl(43,74%,55%)] to-[hsl(43,74%,45%)] bg-clip-text text-transparent">
+                    Drama.
+                  </span>
                 </span>
               </span>
             </motion.h1>

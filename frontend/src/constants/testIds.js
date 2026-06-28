@@ -60,6 +60,11 @@ export const CTA_BAND = {
   cta: "cta-band-whatsapp",
 };
 
+export const BLOG = {
+  section: "blog-section",
+  card: "blog-card",
+};
+
 export const FOOTER = {
   section: "footer-section",
   whatsapp: "footer-whatsapp",

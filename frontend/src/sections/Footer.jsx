@@ -53,6 +53,7 @@ const Footer = () => {
                 ["Layanan", "#layanan"],
                 ["Estimasi AI", "#estimasi"],
                 ["Portofolio", "#portofolio"],
+                ["Artikel", "#artikel"],
                 ["Proses", "#proses"],
                 ["FAQ", "#faq"],
                 ["Kontak", "#kontak"],
