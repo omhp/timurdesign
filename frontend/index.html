@@ -32,10 +32,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=75" fetchpriority="high" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&fm=webp&q=70" fetchpriority="high" media="(max-width: 768px)" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&fm=webp&q=72" fetchpriority="high" media="(min-width: 769px)" />
 
+  <link rel="preload" href="/assets/styles.css" as="style" />
   <link rel="stylesheet" href="/assets/styles.css" />
+
+  <!-- Non-blocking Google Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" /></noscript>
 
   <script type="application/ld+json">
   {
@@ -46,7 +52,7 @@
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=75",
     "description": "Jasa Kontraktor Rumah profesional untuk bangun dan renovasi, kitchen set, desain interior, dan desain eksterior. Spesialis tepat waktu & sesuai anggaran, tanpa drama.",
     "telephone": "+62-822-2681-7232",
-    "email": "halo@timurdesign.com",
+    "email": "admin@timurdesign.com",
     "areaServed": [
       {"@type": "City", "name": "Bali"},
       {"@type": "City", "name": "Surabaya"},
@@ -64,7 +70,21 @@
 <!-- ========== HERO ========== -->
 <section id="hero" class="relative isolate min-h-screen w-full overflow-hidden bg-[hsl(220,15%,5%)] text-white">
   <div class="absolute inset-0 -z-20">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=75" alt="Eksterior rumah modern Indonesia yang elegan saat senja" class="h-full w-full object-cover object-center" loading="eager" decoding="async" />
+    <img
+      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&fm=webp&q=72"
+      srcset="
+        https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&fm=webp&q=70 600w,
+        https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&fm=webp&q=70 900w,
+        https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1280&fm=webp&q=72 1280w,
+        https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&fm=webp&q=72 1600w,
+        https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&fm=webp&q=72 1920w"
+      sizes="100vw"
+      width="1600" height="1067"
+      alt="Eksterior rumah modern Indonesia yang elegan saat senja"
+      class="h-full w-full object-cover object-center"
+      fetchpriority="high"
+      decoding="async"
+    />
   </div>
   <div aria-hidden class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,hsl(220,15%,5%)_0%,hsl(220,15%,5%/0.92)_35%,hsl(220,15%,5%/0.55)_65%,transparent_100%)]"></div>
   <div aria-hidden class="absolute inset-x-0 bottom-0 -z-10 h-64 bg-gradient-to-t from-[hsl(220,15%,5%)] to-transparent"></div>
@@ -327,7 +347,7 @@
         <p class="text-[10px] uppercase tracking-luxe text-white/40">Kontak</p>
         <ul class="mt-5 space-y-3 text-sm text-white/70">
           <li><a href="tel:+6282226817232" class="flex items-center gap-3 transition-colors hover:text-white"><svg class="h-4 w-4 text-[hsl(43,74%,55%)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.57 2.8.7A2 2 0 0 1 22 16.92Z"/></svg>+62 822-2681-7232</a></li>
-          <li><a href="mailto:halo@timurdesign.com" class="flex items-center gap-3 transition-colors hover:text-white"><svg class="h-4 w-4 text-[hsl(43,74%,55%)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 6-10 7L2 6"/></svg>halo@timurdesign.com</a></li>
+          <li><a href="mailto:admin@timurdesign.com" class="flex items-center gap-3 transition-colors hover:text-white"><svg class="h-4 w-4 text-[hsl(43,74%,55%)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 6-10 7L2 6"/></svg>admin@timurdesign.com</a></li>
         </ul>
       </div>
     </div>
@@ -344,6 +364,6 @@
   <span class="hidden sm:inline">Konsultasi Gratis</span>
 </a>
 
-<script src="/assets/script.js"></script>
+<script src="/assets/script.js" defer></script>
 </body>
 </html>

@@ -54,7 +54,9 @@
 
   // ============ Floating WhatsApp visibility on scroll ============
   var floatBtn = document.getElementById("floating-wa");
-  function onScroll() {
+  var scrollTicking = false;
+  function applyScrollState() {
+    scrollTicking = false;
     if (!floatBtn) return;
     if (window.scrollY > 600) {
       floatBtn.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
@@ -64,8 +66,14 @@
       floatBtn.classList.remove("opacity-100", "translate-y-0");
     }
   }
+  function onScroll() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(applyScrollState);
+    }
+  }
   window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
+  applyScrollState();
 
   // ============ SVG icon helper (inline strings) ============
   var ICON = {
@@ -107,20 +115,20 @@
     { icon: "building", title: "Desain Eksterior & Fasad", desc: "Tampilan luar rumah yang berkarakter — modern, tropis, atau klasik. Sesuai gaya yang Anda inginkan.", points: ["Konsep tampilan rumah", "Pilihan material fasad", "Lampu eksterior"], msg: "Halo Timur Design, saya tertarik jasa desain eksterior / fasad." }
   ];
   var sg = document.getElementById("services-grid");
+  var sgFrag = document.createDocumentFragment();
   services.forEach(function (s) {
-    var card = el("a", {
+    var card = el("div", {
       cls: "group relative flex flex-col items-center bg-[hsl(220,15%,5%)] p-7 text-center transition-colors duration-300 hover:bg-[hsl(220,15%,7%)]",
-      attrs: { href: buildWa(s.msg), target: "_blank", rel: "noopener noreferrer" },
     });
     var pts = s.points.map(function (p) { return '<li class="flex items-center gap-2 text-sm text-white/75"><span class="h-1 w-1 rounded-full bg-[hsl(43,74%,55%)]"></span>' + p + "</li>"; }).join("");
     card.innerHTML =
-      ICON.arrow +
       '<div class="mt-2 flex h-14 w-14 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)] transition-all duration-300 group-hover:border-[hsl(43,74%,55%)] group-hover:bg-[hsl(43,74%,49%,0.15)]">' + ICON[s.icon] + "</div>" +
       '<h3 class="mt-6 font-display text-2xl font-semibold leading-tight text-white sm:text-[1.625rem] lg:text-2xl">' + s.title + "</h3>" +
       '<p class="mt-4 text-base leading-relaxed text-white/65 sm:text-[15px]">' + s.desc + "</p>" +
       '<ul class="mt-6 flex flex-col items-center space-y-2.5">' + pts + "</ul>";
-    sg.appendChild(card);
+    sgFrag.appendChild(card);
   });
+  sg.appendChild(sgFrag);
 
   // ============ WHY US ============
   var whyus = [
@@ -132,6 +140,7 @@
     { icon: "eye", title: "Diawasi Sampai Selesai", points: ["Koordinasi tim saat pembangunan", "Garansi gambar bisa benar-benar dibangun", "Pengawas lapangan harian"] }
   ];
   var wg = document.getElementById("whyus-grid");
+  var wgFrag = document.createDocumentFragment();
   whyus.forEach(function (f, idx) {
     var pts = f.points.map(function (p) { return '<li class="flex items-start gap-2.5 text-sm leading-relaxed text-white/65"><span class="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[hsl(43,74%,55%)]"></span><span>' + p + "</span></li>"; }).join("");
     var d = el("div", {
@@ -142,8 +151,9 @@
         '<h3 class="mt-6 font-display text-xl font-semibold text-white">' + f.title + "</h3>" +
         '<ul class="mt-5 inline-flex flex-col items-start space-y-2.5 text-left">' + pts + "</ul>",
     });
-    wg.appendChild(d);
+    wgFrag.appendChild(d);
   });
+  wg.appendChild(wgFrag);
 
   // ============ PROCESS ============
   var steps = [
@@ -167,27 +177,29 @@
 
   // ============ PORTFOLIO ============
   var portfolio = [
-    { title: "Scandinavian", img: "/portfolio/scandinavian.jpg" },
-    { title: "Modern Tropis", img: "/portfolio/modern-tropis.jpg" },
-    { title: "Rumah Gaya Villa", img: "/portfolio/villa.jpg" },
-    { title: "Minimalis Modern", img: "/portfolio/minimalis.jpg" },
-    { title: "Mediterania", img: "/portfolio/mediterania.jpg" },
-    { title: "Industrialis", img: "/portfolio/industrialis.jpg" }
+    { title: "Scandinavian", img: "/portfolio/scandinavian.webp" },
+    { title: "Modern Tropis", img: "/portfolio/modern-tropis.webp" },
+    { title: "Rumah Gaya Villa", img: "/portfolio/villa.webp" },
+    { title: "Minimalis Modern", img: "/portfolio/minimalis.webp" },
+    { title: "Mediterania", img: "/portfolio/mediterania.webp" },
+    { title: "Industrialis", img: "/portfolio/industrialis.webp" }
   ];
   var pg = document.getElementById("portfolio-grid");
+  var pgFrag = document.createDocumentFragment();
   portfolio.forEach(function (p) {
     var art = el("article", {
       cls: "group relative overflow-hidden border border-white/10 bg-black/40",
       html:
         '<div class="relative aspect-[4/5] overflow-hidden">' +
-        '<img src="' + p.img + '" alt="Portofolio rumah gaya ' + p.title + ' oleh Timur Design" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />' +
+        '<img src="' + p.img + '" alt="Portofolio rumah gaya ' + p.title + ' oleh Timur Design" loading="lazy" decoding="async" width="720" height="900" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />' +
         '<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>' +
         '<span class="absolute left-4 top-4 inline-flex items-center gap-1.5 border border-[hsl(43,74%,55%)]/40 bg-[hsl(43,74%,55%)]/15 px-2.5 py-1 text-[10px] uppercase tracking-luxe text-[hsl(43,74%,75%)] backdrop-blur-md">' + ICON.hammer + " Proyek Kami</span>" +
         "</div>" +
         '<div class="absolute inset-x-0 bottom-0 p-5"><div class="flex items-end justify-between gap-3"><h3 class="font-display text-xl font-semibold text-white sm:text-2xl">' + p.title + "</h3>" + ICON.arrowUp + "</div></div>",
     });
-    pg.appendChild(art);
+    pgFrag.appendChild(art);
   });
+  pg.appendChild(pgFrag);
 
   // ============ TESTIMONIALS ============
   var testi = [

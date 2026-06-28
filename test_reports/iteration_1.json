@@ -1,0 +1,38 @@
+{
+  "summary": "Frontend-only verification for Timur Design static landing page after the 3 user-reported fixes (services not WA-linked, email admin@, mobile perf optimizations). All 10 review-request checks PASS. Applied one minor fix: added missing `defer` attribute to the /assets/script.js tag in index.html (was the only structural perf optimization missing).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_results": {
+    "services_cards_not_wa_links": "PASS — #services-grid has 4 plain <div> children, 0 anchors, 0 wa.me links inside. Titles: Bangun & Renovasi Rumah, Jasa Arsitek, Desain Interior, Desain Eksterior & Fasad.",
+    "email_changed_to_admin": "PASS — No occurrence of 'halo@timurdesign.com' anywhere in HTML. JSON-LD line 55 and footer mailto (line 350) both use 'admin@timurdesign.com'. Only mailto link on page: mailto:admin@timurdesign.com.",
+    "portfolio_webp_with_dimensions": "PASS — All 6 portfolio images render as .webp (scandinavian, modern-tropis, villa, minimalis, mediterania, industrialis), each with explicit width=720 height=900 attributes. Files exist in /app/frontend/portfolio/.",
+    "hero_responsive_srcset_webp": "PASS — Hero <img> uses srcset with 600w/900w/1280w/1600w/1920w, all fm=webp, width=1600 height=1067, fetchpriority=high, decoding=async. Image loads (naturalWidth=1920).",
+    "perf_optimizations": "PASS (after fix) — Google Fonts <link> uses media='print' onload=\"this.media='all'\". /assets/styles.css has NO @import. <script src='/assets/script.js' defer> now has defer attribute (added during this test run).",
+    "estimator_e2e": "PASS — Submitting form with defaults (bangun_renovasi/Bali/100m²/1 lantai/menengah) renders: total Rp 566.700.000 – Rp 721.300.000, per m² Rp 5.667.000–Rp 7.213.000, durasi 4–6 bulan, 5-category breakdown, 8% savings vs market, 'Kirim Estimasi ke WhatsApp' button with valid wa.me URL containing the full estimate summary.",
+    "faq_accordion": "PASS — 5 .faq-toggle items. Clicking item #2 closes #1 and opens #2 (only one open at a time). aria-expanded states correct.",
+    "floating_wa_scroll_visibility": "PASS — opacity=0 at scrollY=0 (initial state from inline classes opacity-0/pointer-events-none/translate-y-4). After scrollTo(0,1200): opacity=1, opacity-100 class added. After scrollTo(0,0): opacity=0 again. Works correctly.",
+    "mobile_smoke_test_390x844": "PASS — Hero loads. Section counts: services=4, whyus=6, process=5, portfolio=6, testi=3, faq=5. Footer contains admin@timurdesign.com mailto, and all 4 cities (Bali/Surabaya/Malang/Pontianak) found.",
+    "artikel_section_removed": "PASS — No #artikel section in DOM. No nav/footer links containing text 'Artikel'.",
+    "whatsapp_trigger_inventory": "PASS — Exactly 5 wa.me triggers on initial load (outside Services grid): Hero 'Konsultasi Gratis', Portfolio 'Konsultasi Gaya Rumah', CTA 'Mulai Konsultasi Gratis', Footer 'Chat di WhatsApp', Floating bottom-right 'Konsultasi Gratis'. 6th 'Kirim Estimasi ke WhatsApp' appears after computing estimate. 0 inside #services-grid."
+  },
+  "test_report_links": [],
+  "action_items": [
+    "All 10 review-request checks now pass. Site is ready for user verification of actual PageSpeed score on production deployment.",
+    "Note: Hero image preload triggers a console warning ('preloaded but not used within a few seconds') — this is benign for desktop because preload media-query targets >=769px and the same URL is used by the <img> srcset, but Chromium may still warn. Consider whether the preload <link> is actually delivering value or can be dropped if PSI flags it."
+  ],
+  "critical_code_review_comments": [
+    "Hero image preload (index.html line 35-36) uses media queries to switch between mobile/desktop preload URLs. Some browsers still warn 'preloaded but not used'. If LCP doesn't improve, consider removing the preload links — the <img fetchpriority='high'> alone may be sufficient.",
+    "Floating WA initial state relies on inline Tailwind classes (opacity-0, pointer-events-none, translate-y-4); script.js then toggles based on scroll. This pattern is correct and avoids FOUC.",
+    "JS file is 444 lines — borderline acceptable. If new features are added, consider splitting into modules (services.js, estimator.js, faq.js)."
+  ],
+  "updated_files": ["/app/frontend/index.html (added 'defer' attribute to script tag at line 367)"],
+  "success_rate": {"backend": "N/A (no backend)", "frontend": "100%"},
+  "seed_data_creation": "None — pure static site, no DB.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Site is fully verified. All 3 user-reported bugs (services WA-link, email, perf structural fixes) are confirmed resolved. Actual PageSpeed Insights score must be re-measured by the user/main agent after deployment — structural enablers are all in place: WebP everywhere, lazy-loading on portfolio, fetchpriority=high on hero, defer on script, non-blocking font load, no @import in CSS, explicit width/height for CLS. There is no backend or API to test."
+}
