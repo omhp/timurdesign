@@ -118,9 +118,9 @@ PROJECT_TYPE_LABEL = {
 }
 
 QUALITY_LABEL = {
-    "standar": "Standar (material lokal, finishing fungsional)",
-    "menengah": "Menengah (campuran lokal-impor, finishing rapi)",
-    "premium": "Premium (material impor, finishing eksklusif)",
+    "standar": "Standar (material lokal, hasil rapi & fungsional)",
+    "menengah": "Menengah (campuran lokal-impor, hasil rapi & berkesan)",
+    "premium": "Premium (material impor, hasil mewah dan istimewa)",
 }
 
 
@@ -152,15 +152,15 @@ def _build_user_prompt(req: EstimateRequest) -> str:
         '  "duration_months_low": int,\n'
         '  "duration_months_high": int,\n'
         '  "breakdown": [\n'
-        '    {"category": "Struktur & Pondasi", "low": int, "high": int, "note": "..."},\n'
+        '    {"category": "Pondasi & Struktur", "low": int, "high": int, "note": "..."},\n'
         '    {"category": "Dinding & Atap", "low": int, "high": int, "note": "..."},\n'
-        '    {"category": "MEP (Mekanikal/Elektrikal/Plumbing)", "low": int, "high": int, "note": "..."},\n'
+        '    {"category": "Listrik, Air & Sanitasi", "low": int, "high": int, "note": "..."},\n'
         '    {"category": "Finishing & Interior", "low": int, "high": int, "note": "..."},\n'
-        '    {"category": "Tukang & Manajemen Proyek", "low": int, "high": int, "note": "..."}\n'
+        '    {"category": "Tukang & Pengawasan", "low": int, "high": int, "note": "..."}\n'
         "  ],\n"
-        '  "assumptions": ["3-5 asumsi penting dalam Bahasa Indonesia"],\n'
-        '  "next_steps": ["3 langkah konkret yang dapat dilakukan pemilik rumah"],\n'
-        '  "summary": "2-3 kalimat ringkasan dalam Bahasa Indonesia, ramah & meyakinkan"\n'
+        '  "assumptions": ["3-5 asumsi penting dalam Bahasa Indonesia sederhana, hindari istilah teknis"],\n'
+        '  "next_steps": ["3 langkah konkret yang dapat dilakukan pemilik rumah, ditulis sederhana"],\n'
+        '  "summary": "2-3 kalimat ringkasan dalam Bahasa Indonesia yang ramah, sederhana, mudah dipahami orang awam"\n'
         "}\n\n"
         f"Detail proyek:\n"
         f"- Tipe proyek: {PROJECT_TYPE_LABEL[req.project_type]}\n"
@@ -171,7 +171,10 @@ def _build_user_prompt(req: EstimateRequest) -> str:
         f"- Catatan tambahan: {req.notes or '-'}\n\n"
         "Pastikan total_low == jumlah semua breakdown.low, dan total_high == jumlah semua "
         "breakdown.high. Pastikan cost_per_m2_low * area_m2 ≈ total_low (untuk multi-lantai, "
-        "kalikan dengan jumlah lantai). Gunakan angka bulat yang masuk akal di pasaran Indonesia."
+        "kalikan dengan jumlah lantai). Gunakan angka bulat yang masuk akal di pasaran Indonesia. "
+        "PENTING: Gunakan bahasa Indonesia yang sederhana dan mudah dipahami orang awam. "
+        "Hindari istilah teknis seperti 'MEP', 'addendum', 'site engineer', 'finishing', "
+        "'ergonomis'. Ganti dengan bahasa sehari-hari."
     )
 
 

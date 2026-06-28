@@ -1,43 +1,68 @@
 import React from "react";
 import {
-  PencilRuler,
-  Wallet,
-  HardHat,
-  ShieldAlert,
-  ClipboardCheck,
+  MessageSquare,
+  Box,
+  FileText,
+  Award,
+  Sun,
+  Eye,
 } from "lucide-react";
 import { WHY } from "../constants/testIds";
 
-const dramas = [
+const features = [
   {
-    icon: PencilRuler,
-    label: "Salah Desain",
-    solution:
-      "3D render fotorealistik & approval bertahap. Yang Anda setujui, itu yang dibangun.",
+    icon: MessageSquare,
+    title: "Mulai Tanpa Risiko",
+    points: [
+      "Konsultasi gratis",
+      "Revisi desain sampai puas",
+      "Pembayaran bertahap sesuai progres",
+    ],
   },
   {
-    icon: HardHat,
-    label: "Drama Sama Tukang",
-    solution:
-      "Tim tukang internal yang sudah bekerja >5 tahun bersama kami. Bukan tenaga lepas dadakan.",
+    icon: Box,
+    title: "Lihat Dulu, Baru Bangun",
+    points: [
+      "Gambar denah 2D yang jelas",
+      "Model 3D rumah lengkap",
+      "Bonus video 3D & render eksterior",
+    ],
   },
   {
-    icon: Wallet,
-    label: "Over Budget",
-    solution:
-      "RAB terbuka per item. Jika ada perubahan, harus disetujui tertulis lebih dulu.",
+    icon: FileText,
+    title: "Dokumen Lengkap Diserahkan",
+    points: [
+      "Gambar teknis arsitektur & struktur",
+      "Gambar listrik, air & sanitasi",
+      "Rincian anggaran (RAB) & print A3",
+    ],
   },
   {
-    icon: ShieldAlert,
-    label: "Kontraktor Nakal",
-    solution:
-      "Pembayaran bertahap sesuai progres terverifikasi. Garansi konstruksi 1 tahun.",
+    icon: Award,
+    title: "Kualitas yang Bertahan Lama",
+    points: [
+      "Material berkelas & tahan cuaca",
+      "Struktur lebih kokoh & aman",
+      "Pengecekan kualitas berlapis",
+    ],
   },
   {
-    icon: ClipboardCheck,
-    label: "Tak Sesuai Perencanaan",
-    solution:
-      "Site engineer harian + laporan progres mingguan dengan foto. Semua tercatat.",
+    icon: Sun,
+    title: "Nyaman Ditinggali",
+    points: [
+      "Tata ruang lega & fungsional",
+      "Cahaya alami & sirkulasi udara baik",
+      "Optimal untuk lahan kecil maupun besar",
+    ],
+  },
+  {
+    icon: Eye,
+    title: "Diawasi Sampai Selesai",
+    points: [
+      "Koordinasi tim saat pembangunan",
+      "Garansi gambar bisa benar-benar dibangun",
+      "Pengawas lapangan harian",
+    ],
   },
 ];
 
@@ -59,25 +84,26 @@ const WhyUs = () => {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <div className="max-w-3xl">
           <p className="text-[11px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-            — Tanpa Drama, Janji Kami
+            — Kenapa Pilih Timur Design
           </p>
           <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-            Lima drama umum yang{" "}
-            <span className="italic text-[hsl(43,74%,55%)]">tidak akan</span>{" "}
-            Anda alami.
+            Semua yang Anda butuhkan,{" "}
+            <span className="italic text-[hsl(43,74%,55%)]">
+              sudah kami siapkan.
+            </span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-white/65 sm:text-lg">
-            Kami dengarkan ratusan keluhan pemilik rumah. Lalu kami bangun sistem
-            kerja yang membuat semua kekhawatiran itu jadi mustahil terjadi.
+            Bangun rumah itu rumit. Kami sederhanakan jadi pengalaman yang
+            menyenangkan — mulai dari ngobrol pertama sampai pindah ke rumah baru.
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {dramas.map((d, idx) => {
-            const Icon = d.icon;
+          {features.map((f, idx) => {
+            const Icon = f.icon;
             return (
               <div
-                key={d.label}
+                key={f.title}
                 data-testid={WHY.item}
                 className="group relative border border-white/10 bg-black/30 p-7 backdrop-blur-sm transition-all duration-300 hover:border-[hsl(43,74%,49%,0.4)] hover:bg-black/40"
               >
@@ -87,17 +113,20 @@ const WhyUs = () => {
                 <div className="flex h-11 w-11 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)]">
                   <Icon className="h-5 w-5 text-[hsl(43,74%,55%)]" />
                 </div>
-                <div className="mt-6">
-                  <div className="text-[10px] uppercase tracking-luxe text-white/40 line-through">
-                    Tanpa Drama
-                  </div>
-                  <h3 className="mt-1 font-display text-xl font-semibold text-white">
-                    {d.label}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/65">
-                    {d.solution}
-                  </p>
-                </div>
+                <h3 className="mt-6 font-display text-xl font-semibold text-white">
+                  {f.title}
+                </h3>
+                <ul className="mt-5 space-y-2.5">
+                  {f.points.map((p) => (
+                    <li
+                      key={p}
+                      className="flex items-start gap-2.5 text-sm leading-relaxed text-white/65"
+                    >
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[hsl(43,74%,55%)]" />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             );
           })}

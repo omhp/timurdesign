@@ -41,8 +41,9 @@ const CTABand = () => {
               biaya rumah Anda.
             </h2>
             <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
-              Tanpa biaya. Tanpa komitmen. Tanpa drama. Kami bahas kebutuhan,
-              gaya, dan anggaran Anda — lalu rekomendasikan langkah konkret.
+              Tanpa biaya. Tanpa keharusan lanjut. Tanpa drama. Kami bahas
+              kebutuhan, selera, dan anggaran Anda — lalu rekomendasikan
+              langkah selanjutnya.
             </p>
           </div>
 
@@ -66,7 +67,7 @@ const CTABand = () => {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <p className="text-[11px] uppercase tracking-luxe text-white/40">
-              Respons rata-rata &lt; 10 menit (jam kerja)
+              Biasanya kami balas &lt; 10 menit (jam kerja)
             </p>
           </div>
         </div>

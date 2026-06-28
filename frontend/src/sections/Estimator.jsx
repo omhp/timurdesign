@@ -253,7 +253,7 @@ const Estimator = () => {
                     </select>
                   </Field>
 
-                  <Field label="Kualitas Finishing">
+                  <Field label="Kualitas Bangunan">
                     <div className="grid grid-cols-3 gap-2">
                       {qualities.map((q) => (
                         <button
@@ -329,7 +329,7 @@ const Estimator = () => {
                   <div className="flex flex-col gap-2 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                       <p className="text-[10px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-                        Estimasi Total
+                        Perkiraan Total
                       </p>
                       <p className="mt-2 font-display text-3xl font-bold leading-none text-white sm:text-4xl">
                         {formatIDR(result.total_low)}
@@ -343,7 +343,7 @@ const Estimator = () => {
                         {formatIDR(result.cost_per_m2_high)} per m²
                       </p>
                       <p className="mt-1 text-xs text-white/55">
-                        Durasi: {result.duration_months_low}–
+                        Lama pengerjaan: {result.duration_months_low}–
                         {result.duration_months_high} bulan
                       </p>
                     </div>
@@ -355,7 +355,7 @@ const Estimator = () => {
 
                   <div className="mt-7">
                     <p className="text-[10px] uppercase tracking-luxe text-white/45">
-                      Breakdown Biaya
+                      Rincian Biaya
                     </p>
                     <div className="mt-3 divide-y divide-white/5 border border-white/10">
                       {result.breakdown.map((b) => (

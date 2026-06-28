@@ -14,36 +14,36 @@ const items = [
   {
     icon: Hammer,
     title: "Jasa Tukang Borongan",
-    desc: "Tenaga tukang terkurasi dengan sistem borongan transparan. Anda tahu persis apa yang dibayar.",
-    points: ["Tukang ahli per bidang", "Sistem borongan jelas", "Pengawasan harian"],
+    desc: "Tukang berpengalaman dengan sistem borongan yang jelas. Anda tahu persis apa yang dibayar.",
+    points: ["Tukang ahli di bidangnya", "Harga jelas sejak awal", "Diawasi setiap hari"],
     msg: "Halo Timur Design, saya tertarik dengan jasa tukang bangunan borongan.",
   },
   {
     icon: Home,
     title: "Bangun & Renovasi Rumah",
-    desc: "Dari kavling kosong hingga renovasi total. Arsitektur, struktur, MEP, finishing — satu pintu, satu kontrak.",
-    points: ["Desain 3D + RAB", "Garansi 1 tahun", "Laporan progres mingguan"],
+    desc: "Dari tanah kosong sampai renovasi total. Desain, struktur, listrik-air, sampai finishing — semua satu tim.",
+    points: ["Gambar 3D + rincian biaya", "Garansi 1 tahun", "Laporan progres tiap minggu"],
     msg: "Halo Timur Design, saya tertarik konsultasi bangun/renovasi rumah.",
   },
   {
     icon: ChefHat,
     title: "Kitchen Set Custom",
-    desc: "Kitchen set custom dengan material berkualitas, layout ergonomis, dan finishing rapi sampai detail terkecil.",
-    points: ["Custom ukuran & layout", "Material HPL/duco/solid", "Pemasangan rapi"],
+    desc: "Dapur custom yang pas ukuran, nyaman dipakai, dan rapi sampai detail terkecil.",
+    points: ["Ukuran & layout custom", "Pilihan material lengkap", "Pemasangan rapi"],
     msg: "Halo Timur Design, saya tertarik pembuatan kitchen set.",
   },
   {
     icon: Sofa,
     title: "Desain Interior",
-    desc: "Interior yang nyaman dipakai, bukan cuma cantik di foto. Custom furniture, lighting, dan styling lengkap.",
-    points: ["Moodboard & 3D render", "Custom furniture", "Styling lengkap"],
+    desc: "Interior yang enak dilihat dan nyaman dipakai sehari-hari. Furniture custom, pencahayaan, sampai dekorasi.",
+    points: ["Gambar 3D + moodboard", "Furniture custom", "Dekorasi lengkap"],
     msg: "Halo Timur Design, saya tertarik jasa desain interior.",
   },
   {
     icon: Building2,
     title: "Desain Eksterior & Fasad",
-    desc: "Fasad rumah yang berkarakter — modern tropis, klasik, atau kontemporer. Sesuai kepribadian Anda.",
-    points: ["Konsep arsitektur", "Material fasad pilihan", "Lighting eksterior"],
+    desc: "Tampilan luar rumah yang berkarakter — modern, tropis, atau klasik. Sesuai gaya yang Anda inginkan.",
+    points: ["Konsep tampilan rumah", "Pilihan material fasad", "Lampu eksterior"],
     msg: "Halo Timur Design, saya tertarik jasa desain eksterior / fasad.",
   },
 ];
@@ -63,12 +63,12 @@ const Services = () => {
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
               Satu Tim. Satu Kontrak.{" "}
-              <span className="italic text-white/80">Nol Drama.</span>
+              <span className="italic text-white/80">Tanpa Drama.</span>
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/60">
-            Lima layanan inti, semua dikerjakan oleh tim internal Timur Design.
-            Tidak kami sub-kontrakkan ke pihak yang tidak kami kenal.
+            Lima layanan inti, semua dikerjakan oleh tim sendiri. Tidak
+            kami serahkan ke pihak luar yang tidak kami kenal.
           </p>
         </div>
 

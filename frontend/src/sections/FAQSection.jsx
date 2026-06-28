@@ -4,28 +4,24 @@ import { FAQ_IDS } from "../constants/testIds";
 
 const faqs = [
   {
-    q: "Berapa lama biasanya proyek bangun rumah selesai?",
-    a: "Tergantung luas dan kompleksitas. Rumah 1 lantai 100 m² rata-rata 4-5 bulan, 2 lantai 200 m² rata-rata 6-8 bulan. Semua ada di kontrak, dengan klausa denda keterlambatan.",
+    q: "Berapa lama waktu pengerjaan rumah?",
+    a: "Tergantung luas dan tingkat kesulitan. Rumah 1 lantai (sekitar 100 m²) biasanya selesai 4–5 bulan. Rumah 2 lantai (200 m²) sekitar 6–8 bulan. Semua sudah kami cantumkan di kontrak, lengkap dengan kesepakatan jika ada keterlambatan.",
   },
   {
-    q: "Apakah RAB benar-benar tidak ada biaya tersembunyi?",
-    a: "Ya. RAB kami detail per item (material + upah). Jika ada perubahan ruang lingkup, kami siapkan addendum tertulis yang harus Anda setujui dulu sebelum dikerjakan.",
+    q: "Apakah biaya yang Anda sampaikan sudah final?",
+    a: "Ya. Kami berikan rincian harga per item (material + tukang) sejak awal. Kalau di tengah jalan ada perubahan yang Anda inginkan, kami buatkan kesepakatan tertulis dulu — jadi Anda yang memutuskan, bukan kami yang menentukan sendiri.",
   },
   {
-    q: "Bagaimana sistem pembayarannya?",
-    a: "Pembayaran bertahap (termin) sesuai progres aktual yang terverifikasi. Bukan di awal sekaligus. Termin pertama setelah kontrak tanda tangan biasanya 20-25%.",
+    q: "Bagaimana cara pembayarannya?",
+    a: "Pembayaran bertahap, sesuai progres pekerjaan yang sudah selesai dan diverifikasi. Bukan lunas di awal. Tahap pertama biasanya 20–25% setelah kontrak diteken.",
   },
   {
-    q: "Apa isi garansi konstruksi 1 tahun?",
-    a: "Mencakup perbaikan defek struktural, kebocoran, retak rambut signifikan, dan masalah finishing yang muncul akibat kualitas pengerjaan. Tidak termasuk kerusakan karena pemakaian normal.",
+    q: "Apa saja yang dijamin selama 1 tahun setelah selesai?",
+    a: "Kami jamin perbaikan jika ada masalah seperti dinding retak rambut yang signifikan, kebocoran atap, atau kerusakan akibat kualitas pengerjaan. Yang tidak termasuk: kerusakan karena pemakaian normal (misal cat memudar karena waktu).",
   },
   {
-    q: "Saya di luar 4 kota layanan, apakah bisa dilayani?",
-    a: "Hubungi kami via WhatsApp dulu. Untuk proyek dengan skala tertentu, kami bisa mobilisasi tim ke kota lain (Jakarta, Yogyakarta, Banjarmasin, dll).",
-  },
-  {
-    q: "Bagaimana memulai konsultasi?",
-    a: "Tekan tombol WhatsApp di mana saja di halaman ini. Konsultasi awal 100% gratis, tanpa biaya, tanpa komitmen — Anda bebas membandingkan dengan vendor lain.",
+    q: "Bagaimana cara mulai konsultasi dengan Timur Design?",
+    a: "Cukup klik tombol WhatsApp di halaman ini. Konsultasi pertama gratis sepenuhnya — tanpa biaya, tanpa keharusan lanjut. Anda bebas membandingkan dengan kontraktor lain dulu.",
   },
 ];
 
@@ -40,7 +36,7 @@ const FAQSection = () => {
       <div className="mx-auto max-w-5xl px-6 lg:px-10">
         <div className="max-w-3xl">
           <p className="text-[11px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-            — Pertanyaan Sering Diajukan
+            — Pertanyaan yang Sering Ditanyakan
           </p>
           <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
             Hal-hal yang{" "}
@@ -66,7 +62,7 @@ const FAQSection = () => {
                   <span className="font-display text-base font-semibold text-white sm:text-lg">
                     {f.q}
                   </span>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-white/15 transition-colors group-hover:border-[hsl(43,74%,55%)]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-white/15">
                     {isOpen ? (
                       <Minus className="h-4 w-4 text-[hsl(43,74%,55%)]" />
                     ) : (

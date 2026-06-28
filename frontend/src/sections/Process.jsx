@@ -5,27 +5,27 @@ const steps = [
   {
     n: "01",
     title: "Konsultasi Gratis",
-    desc: "Diskusi kebutuhan, gaya, dan anggaran via WhatsApp atau survei lokasi.",
+    desc: "Ngobrol santai — kebutuhan, selera, dan anggaran Anda. Lewat WhatsApp atau langsung di lokasi.",
   },
   {
     n: "02",
-    title: "Desain & RAB",
-    desc: "Kami siapkan 3D render + Rencana Anggaran Biaya transparan untuk persetujuan Anda.",
+    title: "Desain Rumah & Rincian Biaya",
+    desc: "Kami buatkan gambar 3D + rincian biaya yang detail. Anda bisa revisi sampai cocok di hati.",
   },
   {
     n: "03",
-    title: "Kontrak Tertulis",
-    desc: "Jadwal, harga, dan ruang lingkup dikunci hitam di atas putih. Tidak ada kejutan.",
+    title: "Kontrak Hitam di Atas Putih",
+    desc: "Jadwal, harga, dan lingkup pekerjaan dikunci tertulis. Tidak ada kejutan biaya di tengah jalan.",
   },
   {
     n: "04",
-    title: "Eksekusi & Update",
-    desc: "Site engineer harian + laporan progres mingguan lengkap dengan foto.",
+    title: "Pembangunan & Laporan Mingguan",
+    desc: "Pengawas lapangan setiap hari + laporan progres mingguan lengkap dengan foto. Anda selalu tahu kondisi proyek.",
   },
   {
     n: "05",
-    title: "Serah Terima & Garansi",
-    desc: "Inspeksi bersama, perbaikan minor, kunci diserahkan. Garansi konstruksi 1 tahun aktif.",
+    title: "Serah Terima Kunci & Garansi",
+    desc: "Cek bersama, perbaikan kecil jika perlu, lalu kunci diserahkan. Garansi 1 tahun langsung aktif.",
   },
 ];
 
@@ -40,15 +40,15 @@ const Process = () => {
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:sticky lg:top-24">
             <p className="text-[11px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-              — Proses Kerja
+              — Cara Kami Bekerja
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
               Lima langkah,{" "}
-              <span className="italic text-white/80">zero spekulasi.</span>
+              <span className="italic text-white/80">tanpa tebak-tebakan.</span>
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-              Sistem yang sama kami terapkan di setiap proyek — dari rumah 50 m²
-              hingga vila 800 m². Konsisten, terukur, terdokumentasi.
+              Cara kerja yang sama kami pakai di setiap proyek — mulai dari
+              rumah 50 m² sampai vila 800 m². Jelas, terukur, dan ada catatannya.
             </p>
           </div>
 
