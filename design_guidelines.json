@@ -1,0 +1,77 @@
+{
+  "theme_and_archetype": {
+    "domain": "Home Construction/Renovation",
+    "theme": "DARK",
+    "archetype": "5 (Luxury)",
+    "description": "Premium & elegant, cinematic mood, expensive feel. Utilizes dark backgrounds (midnight or obsidian) with metallic gold accents for trust and high-end positioning."
+  },
+  "copywriting": {
+    "main_headline": "Bangun Rumah Impian Anda, Tanpa Drama.",
+    "sub_headline": "Tinggalkan kekhawatiran salah desain, over-budget, dan kontraktor nakal. Kami menjamin ketepatan waktu, transparansi anggaran, dan hasil sempurna.",
+    "primary_cta": "Konsultasi Gratis via WhatsApp",
+    "supporting_points": [
+      "Jaminan Tepat Waktu & Anggaran",
+      "Desain 100% Sesuai Realisasi",
+      "Bebas Pusing Urus Tukang"
+    ],
+    "trust_elements": "Dipercaya 100+ keluarga di Indonesia • Garansi Konstruksi 1 Tahun"
+  },
+  "design_system": {
+    "colors": {
+      "background_base": "hsl(220, 15%, 5%)",
+      "background_surface": "hsl(220, 15%, 8%)",
+      "primary_accent": "hsl(43, 74%, 49%)",
+      "primary_accent_hover": "hsl(43, 74%, 55%)",
+      "text_primary": "hsl(0, 0%, 98%)",
+      "text_secondary": "hsl(220, 10%, 65%)",
+      "border_color": "hsl(43, 74%, 49%, 0.2)"
+    },
+    "typography": {
+      "heading_font": "Playfair Display",
+      "body_font": "Outfit",
+      "rules": {
+        "h1": "text-5xl md:text-6xl+ font-bold tracking-tight text-balance leading-tight",
+        "sub_headline": "text-lg md:text-xl text-text_secondary leading-relaxed max-w-2xl",
+        "cta": "text-base font-semibold tracking-wide",
+        "labels": "uppercase text-xs tracking-[0.2em]"
+      }
+    },
+    "spacing_and_layout": {
+      "container": "max-w-7xl mx-auto px-6 lg:px-8",
+      "section_padding": "py-24 sm:py-32",
+      "hero_layout": "grid grid-cols-1 lg:grid-cols-12 gap-12 items-center",
+      "content_span": "lg:col-span-7",
+      "image_span": "lg:col-span-5"
+    },
+    "surface_strategies": {
+      "glassmorphism": "backdrop-blur-xl bg-black/40 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]",
+      "buttons": "bg-primary_accent text-black hover:bg-primary_accent_hover transition-colors rounded-none px-8 py-4 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]"
+    }
+  },
+  "media": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBob21lJTIwZXh0ZXJpb3IlMjBkdXNrfGVufDB8fHx8MTc4MjYyNDgyM3ww&ixlib=rb-4.1.0&q=85",
+      "alt": "Modern luxury dark architectural home exterior at dusk",
+      "instructions": "Use as full-viewport background with absolute positioning. Apply a gradient overlay `bg-gradient-to-r from-background_base/95 via-background_base/80 to-transparent` to ensure the left-aligned text has high contrast while the right side of the image is clearly visible."
+    },
+    "logo_placeholder": {
+      "text": "TIMUR DESIGN",
+      "style": "font-heading text-2xl font-bold tracking-widest text-white"
+    }
+  },
+  "interactions_and_motion": {
+    "hover_states": "CTAs must brighten and increase shadow spread. Links must have subtle opacity shifts.",
+    "entrance_animations": "Staggered fade-up for headline, sub-headline, supporting points, and CTA (using Framer Motion).",
+    "accessibility": "Ensure all interactive elements have data-testid attributes (e.g., data-testid='hero-whatsapp-cta'). Respect prefers-reduced-motion."
+  },
+  "instructions_to_main_agent": [
+    "Use raw HTML/Tailwind for the hero layout to allow full creative control and asynchronous overlapping.",
+    "Install and use 'Playfair Display' and 'Outfit' from Google Fonts.",
+    "Implement the background image using next/image or standard img tag with `object-cover` and `h-screen`, overlaying the gradient via an absolute div.",
+    "Place the supporting points (3 bullet points) in a horizontal or vertical bento-style glassmorphism card or list below the CTA.",
+    "For the trust elements, add a small subtle bar at the bottom of the hero or right above the CTA with small icons (e.g., Lucide React 'ShieldCheck' or 'Star').",
+    "Do NOT use center-alignment for the main text. Left-align the text in the 7-column grid space.",
+    "Do NOT use Inter or standard fonts. Stick strictly to the typography rules.",
+    "Install lucide-react if not present for the icons (WhatsApp icon on CTA, CheckCircle for bullets)."
+  ]
+}
