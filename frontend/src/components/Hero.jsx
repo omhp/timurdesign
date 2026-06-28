@@ -10,13 +10,11 @@ import {
   ArrowRight,
   Phone,
 } from "lucide-react";
-import { Button } from "../components/ui/button";
 import { HERO } from "../constants/testIds";
+import { WHATSAPP_URL, PHONE_DISPLAY, SERVICE_CITIES } from "../constants/brand";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=75";
-
-import { WHATSAPP_URL, PHONE_DISPLAY, SERVICE_CITIES } from "../constants/brand";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -55,13 +53,17 @@ const Hero = () => {
       data-testid={HERO.section}
       className="relative isolate min-h-screen w-full overflow-hidden bg-[hsl(220,15%,5%)] text-white"
     >
-      {/* Background image */}
+      {/* Background image — responsive srcset for lighter mobile */}
       <div className="absolute inset-0 -z-20">
         <img
           src={HERO_IMAGE}
-          alt="Eksterior rumah mewah modern saat senja"
+          srcSet={`${HERO_IMAGE.replace("w=1920", "w=800")} 800w, ${HERO_IMAGE.replace("w=1920", "w=1280")} 1280w, ${HERO_IMAGE} 1920w`}
+          sizes="100vw"
+          alt="Eksterior rumah modern Indonesia yang elegan saat senja"
           className="h-full w-full object-cover object-center"
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
       </div>
 

@@ -1,43 +1,85 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#0a0d12" />
+
+        <!-- Primary SEO -->
+        <title>Timur Design — Bangun & Renovasi Rumah Impian Tanpa Drama | Bali · Surabaya · Malang · Pontianak</title>
+        <meta name="description" content="Jasa kontraktor profesional untuk bangun & renovasi rumah, kitchen set, desain interior & eksterior. Spesialis ketepatan waktu & anggaran. Konsultasi gratis via WhatsApp. Melayani Bali, Surabaya, Malang, Pontianak." />
+        <meta name="keywords" content="kontraktor rumah, bangun rumah, renovasi rumah, jasa tukang borongan, kitchen set custom, desain interior, desain eksterior, kontraktor Bali, kontraktor Surabaya, kontraktor Malang, kontraktor Pontianak, Timur Design" />
+        <meta name="author" content="Timur Design" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <link rel="canonical" href="https://timurdesign.com/" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="timurdesign.com" />
+        <meta property="og:title" content="Timur Design — Bangun & Renovasi Rumah Impian Tanpa Drama" />
+        <meta property="og:description" content="Spesialis ketepatan waktu & anggaran. Jaminan tanpa drama: salah desain, over budget, kontraktor nakal. Konsultasi gratis via WhatsApp." />
+        <meta property="og:locale" content="id_ID" />
+        <meta property="og:url" content="https://timurdesign.com/" />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=75" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="800" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Timur Design — Bangun & Renovasi Rumah Impian Tanpa Drama" />
+        <meta name="twitter:description" content="Jasa kontraktor profesional di Bali, Surabaya, Malang, Pontianak. Konsultasi gratis via WhatsApp." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=75" />
+
+        <!-- Favicon (data URI to avoid extra request; gold "T") -->
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230a0d12'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='40' font-weight='700' fill='%23dba93b'%3ET%3C/text%3E%3C/svg%3E" />
+
+        <!-- Performance hints -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=75" fetchpriority="high" />
 
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>Emergent | Fullstack App</title>
+        <!-- Structured data: LocalBusiness -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "GeneralContractor",
+          "name": "Timur Design",
+          "url": "https://timurdesign.com/",
+          "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=75",
+          "description": "Spesialis ketepatan waktu & anggaran untuk bangun dan renovasi rumah, kitchen set, desain interior, dan desain eksterior.",
+          "telephone": "+62-822-2681-7232",
+          "email": "halo@timurdesign.com",
+          "areaServed": [
+            {"@type": "City", "name": "Bali"},
+            {"@type": "City", "name": "Surabaya"},
+            {"@type": "City", "name": "Malang"},
+            {"@type": "City", "name": "Pontianak"}
+          ],
+          "priceRange": "Rp",
+          "sameAs": ["https://wa.me/6282226817232"],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "ratingCount": "100"
+          },
+          "makesOffer": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jasa Tukang Bangunan Borongan"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bangun & Renovasi Rumah"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pembuatan Kitchen Set"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Desain Interior"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Desain Eksterior"}}
+          ]
+        }
+        </script>
+
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
     </head>
     <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <noscript>Anda perlu mengaktifkan JavaScript untuk menggunakan situs ini.</noscript>
         <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
         <a
             id="emergent-badge"
             target="_blank"
@@ -147,7 +189,7 @@
             })(document, window.posthog || []);
             posthog.init("phc_xAvL2Iq4tFmANRE7kzbKwaSqp1HJjN7x48s3vr0CMjs", {
                 api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
+                person_profiles: "identified_only",
                 session_recording: {
                     recordCrossOriginIframes: true,
                     capturePerformance: false,

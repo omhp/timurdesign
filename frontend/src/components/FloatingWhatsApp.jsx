@@ -18,7 +18,7 @@ const FloatingWhatsApp = () => {
       rel="noopener noreferrer"
       data-testid="floating-whatsapp"
       aria-label="Chat di WhatsApp"
-      className={`fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 bg-[hsl(43,74%,49%)] px-4 py-3 text-xs font-semibold uppercase tracking-luxe text-[hsl(220,15%,5%)] transition-all duration-300 gold-glow hover:bg-[hsl(43,74%,55%)] sm:px-5 sm:py-3.5 sm:text-sm ${
+      className={`fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 bg-[hsl(43,74%,49%)] px-3 py-2.5 text-[11px] font-semibold uppercase tracking-luxe text-[hsl(220,15%,5%)] shadow-[0_8px_24px_rgba(0,0,0,0.4)] transition-all duration-300 gold-glow hover:bg-[hsl(43,74%,55%)] sm:bottom-5 sm:right-5 sm:px-5 sm:py-3.5 sm:text-sm ${
         show
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0"

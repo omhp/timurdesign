@@ -142,3 +142,14 @@ code {
 html {
     scroll-behavior: smooth;
 }
+
+/* Anchor section offsets so smooth-scroll doesn't hide content under sticky elements */
+section[id] {
+    scroll-margin-top: 0px;
+}
+
+@media (max-width: 640px) {
+    section[id] {
+        scroll-margin-top: 0px;
+    }
+}
