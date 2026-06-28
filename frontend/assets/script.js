@@ -47,10 +47,6 @@
       "Halo Timur Design, saya tertarik dengan portofolio dan ingin konsultasi gaya rumah."
     )
   );
-  setHref(
-    "blog-wa",
-    buildWa("Halo Timur Design, saya ingin tanya seputar bangun rumah.")
-  );
 
   // ============ Year ============
   var yr = document.getElementById("year");
@@ -262,28 +258,6 @@
     } else {
       faqOpen = -1;
     }
-  });
-
-  // ============ BLOG ============
-  var articles = [
-    { title: "Tips Memilih Jasa Kontraktor Rumah yang Tepat", excerpt: "Sebelum tanda tangan kontrak, pastikan kontraktor pilihan Anda punya 5 hal ini: portofolio nyata, kontrak tertulis jelas, sistem progress payment, garansi pasca-bangun, dan tim sendiri (bukan calo).", category: "Panduan", readTime: "5 menit", msg: "Halo Timur Design, saya tertarik konsultasi sebelum memilih kontraktor." },
-    { title: "Estimasi Biaya Jasa Kontraktor Rumah di Bali 2026", excerpt: "Bangun rumah di Bali berbeda dengan di Jawa — material, ongkos tukang, dan izin punya karakteristik sendiri. Kisaran biaya bangun rumah di Bali: standar Rp 4–5,5jt/m², menengah Rp 5,5–7jt/m², premium di atas Rp 7,5jt/m².", category: "Estimasi Biaya", readTime: "6 menit", msg: "Halo Timur Design, saya mau konsultasi biaya bangun rumah di Bali." },
-    { title: "5 Pertanyaan Wajib Sebelum Tanda Tangan Kontrak", excerpt: "Jangan tergoda harga murah. Tanyakan: siapa yang kerjakan? berapa lama? bagaimana skema pembayaran? apa yang masuk & tidak masuk paket? siapa yang tanggung jawab kalau ada kebocoran 6 bulan kemudian?", category: "Tips", readTime: "4 menit", msg: "Halo Timur Design, saya mau konsultasi sebelum tanda tangan kontrak." }
-  ];
-  var bg = document.getElementById("blog-grid");
-  articles.forEach(function (a) {
-    var c = el("a", {
-      cls: "group relative flex flex-col gap-5 border border-white/10 bg-black/40 p-7 transition-all duration-300 hover:border-[hsl(43,74%,55%)]/40 hover:bg-black/60",
-      attrs: { href: buildWa(a.msg), target: "_blank", rel: "noopener noreferrer" },
-      html:
-        '<div class="flex items-center justify-between text-[10px] uppercase tracking-luxe text-white/50">' +
-        '<span class="inline-flex items-center gap-1.5 text-[hsl(43,74%,55%)]">' + ICON.book + a.category + "</span>" +
-        '<span class="inline-flex items-center gap-1.5">' + ICON.clock + a.readTime + "</span></div>" +
-        '<h3 class="font-display text-xl font-semibold leading-snug text-white sm:text-2xl">' + a.title + "</h3>" +
-        '<p class="flex-1 text-sm leading-relaxed text-white/65">' + a.excerpt + "</p>" +
-        '<div class="flex items-center gap-2 text-xs uppercase tracking-luxe text-white/70 transition-colors group-hover:text-[hsl(43,74%,55%)]">Tanya via WhatsApp <svg class="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M7 7h10v10"/></svg></div>',
-    });
-    bg.appendChild(c);
   });
 
   // ============ ESTIMATOR ============

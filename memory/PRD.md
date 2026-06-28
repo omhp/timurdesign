@@ -11,20 +11,21 @@ Static landing page untuk "Timur Design" (brand: timurdesign.com).
 
 ### Struktur
 ```
-/app/site/
-├── index.html         # Semua section dalam 1 file
+/app/frontend/
+├── index.html         # Semua section dalam 1 file (tanpa blog)
+├── package.json       # Minimal: yarn start → python3 http.server
 ├── assets/
 │   ├── styles.css     # Tailwind pre-compiled (minified, ~27KB)
-│   └── script.js      # Vanilla JS untuk semua interaktivitas (~42KB)
+│   └── script.js      # Vanilla JS untuk semua interaktivitas (~38KB)
 ├── portfolio/         # 6 foto proyek klien (.jpg, sudah dioptimasi)
 ├── robots.txt
 └── sitemap.xml
 ```
 
-`/app/frontend/package.json` hanya berisi script `yarn start` yang menjalankan `python3 -m http.server` agar preview environment bisa serve folder `/app/site/`.
+Static files langsung dilayani dari `/app/frontend/` (sesuai supervisor config).
 
 ### Deploy ke production
-Upload folder `/app/site/` ke any static host (Vercel, Netlify, Cloudflare Pages, GitHub Pages, Nginx, S3). Tidak perlu Node, tidak perlu env var, tidak ada build step.
+Upload folder `/app/frontend/` (tanpa `package.json`, `.env`, `.gitignore`) ke any static host (Vercel, Netlify, Cloudflare Pages, GitHub Pages, Nginx, S3). Tidak perlu Node, tidak perlu env var, tidak ada build step.
 
 ## Sections (urutan)
 1. **Hero** — eyebrow "Jasa Kontraktor Rumah"; H1 "Bangun Rumah Impian Anda Tanpa Banyak Drama"; CTA WA + Estimasi; bento card 3 supporting points
@@ -35,9 +36,8 @@ Upload folder `/app/site/` ke any static host (Vercel, Netlify, Cloudflare Pages
 6. **Portofolio** — 6 proyek nyata
 7. **Testimonials** — 3 reviews
 8. **FAQ** — 5 accordion (vanilla JS toggle)
-9. **Blog/Artikel** — 3 artikel SEO
-10. **CTA Band** — Final WA push
-11. **Footer** — Navigation, kota, contact
+9. **CTA Band** — Final WA push
+10. **Footer** — Navigation, kota, contact
 - **FloatingWhatsApp** — Sticky after scroll > 600px
 
 ## Static Estimator Formula
