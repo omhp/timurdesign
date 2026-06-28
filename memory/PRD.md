@@ -12,12 +12,14 @@ Static landing page untuk "Timur Design" (brand: timurdesign.com).
 ### Struktur
 ```
 /app/frontend/
-├── index.html         # Semua section dalam 1 file (tanpa blog)
+├── index.html         # Semua section dalam 1 file + CSS+@font-face DI-INLINE (≈63 KB)
 ├── package.json       # Minimal: yarn start → python3 http.server
 ├── assets/
-│   ├── styles.css     # Tailwind pre-compiled (minified, ~27KB)
-│   └── script.js      # Vanilla JS untuk semua interaktivitas (~38KB)
-├── portfolio/         # 6 foto proyek klien (.jpg, sudah dioptimasi)
+│   ├── styles.css     # Tailwind pre-compiled (tidak lagi direferensikan — sudah inline)
+│   ├── script.js      # Vanilla JS untuk semua interaktivitas (~38KB)
+│   ├── hero/          # Hero LCP image self-hosted: hero-{600,1280,1920}.webp
+│   └── fonts/         # Self-hosted Playfair Display + Outfit (3 woff2, ~107 KB total)
+├── portfolio/         # 6 foto proyek klien (.webp, sudah dioptimasi)
 ├── robots.txt
 └── sitemap.xml
 ```
@@ -55,7 +57,22 @@ Embedded di `script.js` (function `computeEstimate`):
 ## Brand Constants
 - WHATSAPP_NUMBER: 6282226817232
 - PHONE_DISPLAY: +62 822-2681-7232
-- EMAIL: halo@timurdesign.com
+- EMAIL: admin@timurdesign.com
+
+## Performance Optimization (Feb 28, 2026)
+Untuk menaikkan PageSpeed Insights mobile dari 87 menuju ~100:
+- **Hero image self-hosted**: Unsplash (101 KiB external, LCP delay 2.28s) → `/assets/hero/hero-{600,1280,1920}.webp` (35/128/249 KB) dengan preload + media query
+- **Fonts self-hosted**: Google Fonts (111 KiB) → `/assets/fonts/*.woff2` (107 KB total, latin subset saja, drop latin-ext)
+- **CSS + @font-face inlined**: tidak ada lagi render-blocking external CSS request; semua di `<style>` block (~32 KB inline)
+- **JS reflow guard**: `applyScrollState()` cache state — skip DOM writes saat tidak ada perubahan
+- **Preload critical fonts**: 2 woff2 dengan `<link rel="preload" as="font" crossorigin>`
+
+### Catatan untuk production deployment
+Static host harus set header berikut:
+- `/assets/hero/*`, `/assets/fonts/*`, `/assets/*.css`, `/assets/*.js`: `Cache-Control: public, max-age=31536000, immutable`
+- `/index.html`, `/`: `Cache-Control: public, max-age=300`
+- Aktifkan Brotli/Gzip compression untuk HTML/CSS/JS/SVG
+- Aktifkan HTTP/2 atau HTTP/3
 
 ## Backlog
 - P2: Halaman detail artikel (perlu file HTML tambahan per artikel)
