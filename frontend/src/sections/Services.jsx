@@ -19,7 +19,7 @@ const items = [
   },
   {
     icon: PencilRuler,
-    title: "Jasa Arsitek Desain",
+    title: "Jasa Arsitek",
     desc: "Desain rumah, villa, toko, atau kantor. Konsep arsitektur, denah 2D, model 3D, dan gambar teknis siap bangun.",
     points: ["Rumah, villa, toko, kantor", "Denah 2D + model 3D", "Gambar teknis lengkap"],
     msg: "Halo Timur Design, saya tertarik jasa arsitek desain (rumah/villa/toko/kantor).",
@@ -59,8 +59,9 @@ const Services = () => {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/60">
-            Empat layanan inti, semua dikerjakan oleh tim sendiri. Tidak
-            kami serahkan ke pihak luar yang tidak kami kenal.
+            Empat layanan inti, dikerjakan oleh tenaga profesional kami yang
+            berpengalaman — terlatih, terpercaya, dan siap mewujudkan rumah
+            impian Anda.
           </p>
         </div>
 
