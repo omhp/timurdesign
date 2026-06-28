@@ -6,34 +6,28 @@ import { buildWaUrl } from "../constants/brand";
 // Portofolio nyata Timur Design — gambar disediakan oleh klien/proyek sendiri.
 const projects = [
   {
-    title: "Minimalis Modern",
-    tagline: "Bersih, fungsional, garis tegas",
-    desc: "Rumah dua lantai dengan aksen kayu vertikal, jendela tinggi, dan carport ganda. Memberi kesan modern, rapi, dan mudah dirawat.",
-    img: "/portfolio/minimalis.jpg",
+    title: "Scandinavian",
+    img: "/portfolio/scandinavian.jpg",
   },
   {
     title: "Modern Tropis",
-    tagline: "Adem, terbuka, ramah iklim Indonesia",
-    desc: "Atap lebar dengan overhang panjang, balkon tinggi, dan dikelilingi pohon palem. Cahaya hangat membuat hunian tetap sejuk dan nyaman.",
     img: "/portfolio/modern-tropis.jpg",
   },
   {
+    title: "Rumah Gaya Villa",
+    img: "/portfolio/villa.jpg",
+  },
+  {
+    title: "Minimalis Modern",
+    img: "/portfolio/minimalis.jpg",
+  },
+  {
     title: "Mediterania",
-    tagline: "Hangat, melengkung, khas Eropa Selatan",
-    desc: "Atap genteng terakota, dinding krem, lengkungan pintu, dan railing besi tempa. Disempurnakan dengan bunga bougenville dan teras kayu.",
     img: "/portfolio/mediterania.jpg",
   },
   {
     title: "Industrialis",
-    tagline: "Tegas, jujur, ekspos material",
-    desc: "Cafe dengan dinding bata merah ekspos, rangka baja hitam, dan lampu gantung Edison. Cocok untuk Anda yang suka karakter kuat dan otentik.",
     img: "/portfolio/industrialis.jpg",
-  },
-  {
-    title: "Villa Tropis Bali",
-    tagline: "Tradisional, alami, menyatu dengan alam",
-    desc: "Villa beratap ilalang khas Bali dengan kolam pribadi, pilar kayu, dan taman tropis. Nuansa tenang yang banyak dicari untuk rumah peristirahatan.",
-    img: "/portfolio/villa.jpg",
   },
 ];
 
@@ -96,17 +90,9 @@ const Portfolio = () => {
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="flex items-end justify-between gap-3">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-                      {p.tagline}
-                    </p>
-                    <h3 className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
-                      {p.title}
-                    </h3>
-                    <p className="mt-1.5 max-w-xs text-xs leading-relaxed text-white/65">
-                      {p.desc}
-                    </p>
-                  </div>
+                  <h3 className="font-display text-xl font-semibold text-white sm:text-2xl">
+                    {p.title}
+                  </h3>
                   <ArrowUpRight className="h-5 w-5 shrink-0 text-white/60 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(43,74%,55%)]" />
                 </div>
               </div>
