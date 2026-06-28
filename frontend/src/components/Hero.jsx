@@ -95,8 +95,8 @@ const Hero = () => {
             <a href="#kenapa" className="hover:text-white transition-colors">
               Kelebihan
             </a>
-            <a href="#gaya-desain" className="hover:text-white transition-colors">
-              Gaya Desain
+            <a href="#portofolio" className="hover:text-white transition-colors">
+              Portofolio
             </a>
             <a href="#kontak" className="hover:text-white transition-colors">
               Kontak
