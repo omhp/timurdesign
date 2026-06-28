@@ -155,7 +155,7 @@ def _build_user_prompt(req: EstimateRequest) -> str:
         '    {"category": "Pondasi & Struktur", "low": int, "high": int, "note": "..."},\n'
         '    {"category": "Dinding & Atap", "low": int, "high": int, "note": "..."},\n'
         '    {"category": "Listrik, Air & Sanitasi", "low": int, "high": int, "note": "..."},\n'
-        '    {"category": "Finishing & Interior", "low": int, "high": int, "note": "..."},\n'
+        '    {"category": "Penyelesaian & Interior", "low": int, "high": int, "note": "..."},\n'
         '    {"category": "Tukang & Pengawasan", "low": int, "high": int, "note": "..."}\n'
         "  ],\n"
         '  "assumptions": ["3-5 asumsi penting dalam Bahasa Indonesia sederhana, hindari istilah teknis"],\n'
