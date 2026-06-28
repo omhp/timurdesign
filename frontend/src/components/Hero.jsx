@@ -259,7 +259,7 @@ const Hero = () => {
                 <span className="font-semibold text-white">
                   Konsultasi 100% Gratis
                 </span>{" "}
-                — tanpa biaya, tanpa komitmen.
+                — tanpa biaya, tanpa keharusan lanjut.
               </p>
             </div>
           </motion.aside>

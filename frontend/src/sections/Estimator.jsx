@@ -158,7 +158,7 @@ const Estimator = () => {
             <ul className="mt-7 space-y-3 text-sm text-white/65">
               {[
                 "Rentang biaya low–high yang realistis",
-                "Breakdown per kategori (struktur, MEP, finishing)",
+                "Rincian biaya per bagian (struktur, listrik/air, penyelesaian)",
                 "Estimasi durasi pengerjaan",
                 "Langkah konkret setelah estimasi",
               ].map((b) => (

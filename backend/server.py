@@ -167,7 +167,7 @@ def _build_user_prompt(req: EstimateRequest) -> str:
         f"- Kota: {req.city}\n"
         f"- Luas: {req.area_m2:g} m²\n"
         f"- Jumlah lantai: {req.floors}\n"
-        f"- Kualitas finishing: {QUALITY_LABEL[req.quality]}\n"
+        f"- Kualitas bangunan: {QUALITY_LABEL[req.quality]}\n"
         f"- Catatan tambahan: {req.notes or '-'}\n\n"
         "Pastikan total_low == jumlah semua breakdown.low, dan total_high == jumlah semua "
         "breakdown.high. Pastikan cost_per_m2_low * area_m2 ≈ total_low (untuk multi-lantai, "

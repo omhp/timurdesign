@@ -1,0 +1,44 @@
+{
+  "summary": "Iteration 4.1 verification of 3 consistency tweaks. Frontend tweaks (#1 estimator bullet, #3 hero pill) PASSED. Backend tweak (#2 prompt category rename) FAILED - server.py line 158 still contains 'Finishing & Interior' instead of 'Penyelesaian & Interior', and the live LLM faithfully returns 'Finishing & Interior' in the breakdown.",
+  "backend_issues": {
+    "critical": [
+      {
+        "endpoint": "/api/estimate",
+        "issue": "Breakdown category 'Finishing & Interior' still present (expected 'Penyelesaian & Interior'). Root cause: /app/backend/server.py line ~158 in _build_user_prompt() still hardcodes 'Finishing & Interior' in the JSON schema example sent to the LLM. The LLM mirrors the example. Live test confirmed categories returned: ['Pondasi & Struktur', 'Dinding & Atap', 'Listrik, Air & Sanitasi', 'Finishing & Interior', 'Tukang & Pengawasan'].",
+        "priority": "HIGH"
+      }
+    ],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Estimator.jsx (descriptive paragraph above bullets, line ~154)",
+        "issues": ["Paragraph still reads 'breakdown per kategori'. Not required by this iteration (only bullet list was in scope), but flagging for consistency: consider replacing 'breakdown per kategori' with 'rincian biaya per bagian' to match the updated bullet."]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_iteration_4_1_tweaks.py",
+    "/app/test_reports/pytest/iter4_1_results.xml"
+  ],
+  "action_items": [
+    "Edit /app/backend/server.py line 158: change `'    {\"category\": \"Finishing & Interior\", \"low\": int, \"high\": int, \"note\": \"...\"},\\n'` to `'    {\"category\": \"Penyelesaian & Interior\", \"low\": int, \"high\": int, \"note\": \"...\"},\\n'`. No server restart needed (hot reload). Then re-run /app/backend/tests/test_iteration_4_1_tweaks.py to confirm.",
+    "(Optional consistency) Update Estimator.jsx paragraph line ~154 to replace 'breakdown per kategori' with 'rincian biaya per bagian'."
+  ],
+  "critical_code_review_comments": [
+    "Backend prompt and Indonesian-language guideline are now inconsistent: line 176 instructs the LLM to AVOID 'finishing', but line 158 explicitly uses 'Finishing & Interior' in the JSON schema example. The LLM trusts the schema example over the instruction. Always keep example values and avoidance lists aligned."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iteration_4_1_tweaks.py (new)"
+  ],
+  "success_rate": {"backend": "0%", "frontend": "100%"},
+  "test_credentials": "n/a",
+  "seed_data_creation": "none",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Only 1 test in /app/backend/tests/test_iteration_4_1_tweaks.py. It POSTs to /api/estimate with bangun_baru/Surabaya/100m2/menengah and asserts breakdown contains 'Penyelesaian & Interior' and no category contains 'Finishing' or 'MEP'. Live LLM call ~22s. Re-run after main agent edits server.py line 158.",
+  "rca of the issue": "Main agent's iteration 4.1 patched the two frontend strings (Estimator.jsx bullet, Hero.jsx pill) successfully, but missed the backend prompt change in server.py _build_user_prompt(). The LLM uses the schema example verbatim as the category name, so any wording change must be made in the prompt schema example itself, not only in the avoidance instruction. Fix: single-string replace on line 158 of /app/backend/server.py."
+}
