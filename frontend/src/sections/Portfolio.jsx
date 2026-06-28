@@ -1,9 +1,10 @@
 import React from "react";
-import { ArrowUpRight, Palette } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { PORTFOLIO } from "../constants/testIds";
 import { buildWaUrl } from "../constants/brand";
 
-// Six popular Indonesian residential design styles
+// Portfolio of completed projects, titled by design style.
+// Photos: front-facade (tampak depan) of each style.
 const projects = [
   {
     title: "Tropis Modern",
@@ -21,13 +22,13 @@ const projects = [
     title: "Industrial",
     desc: "Beton ekspos, baja hitam, dan sentuhan kayu untuk kesan urban.",
     size: "210 m²",
-    img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200&q=70",
   },
   {
     title: "Skandinavia",
-    desc: "Putih bersih, kayu terang, dan pencahayaan alami melimpah.",
+    desc: "Putih bersih, kayu terang, atap miring khas Eropa Utara.",
     size: "150 m²",
-    img: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=70",
   },
   {
     title: "Mediterania",
@@ -39,7 +40,7 @@ const projects = [
     title: "Japandi",
     desc: "Perpaduan Jepang & Skandinavia — tenang, hangat, dan minimalis.",
     size: "165 m²",
-    img: "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1613553474179-e1eda3ea5734?auto=format&fit=crop&w=1200&q=70",
   },
 ];
 
@@ -54,27 +55,27 @@ const Portfolio = () => {
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="text-[11px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-              — Gaya Desain Populer
+              — Proyek Pilihan Kami
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-              Pilih gaya{" "}
-              <span className="italic text-white/80">yang Anda sukai.</span>
+              Hasil kerja kami,{" "}
+              <span className="italic text-white/80">bukan janji manis.</span>
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-              Setiap gaya punya karakter dan kelebihannya sendiri. Diskusikan
-              dengan kami — kami bantu pilih yang paling cocok untuk lahan dan
-              gaya hidup Anda.
+              Beberapa proyek yang sudah kami selesaikan — dengan beragam gaya,
+              mulai dari Tropis Modern hingga Japandi. Lihat referensi yang
+              paling cocok dengan selera Anda.
             </p>
           </div>
           <a
             href={buildWaUrl(
-              "Halo Timur Design, saya ingin diskusi gaya desain yang cocok untuk rumah saya."
+              "Halo Timur Design, saya ingin lihat portofolio lengkap proyek."
             )}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 border border-white/15 px-5 py-3 text-xs uppercase tracking-luxe text-white/80 transition-colors hover:border-[hsl(43,74%,55%)] hover:text-white"
           >
-            Diskusi Gaya Desain
+            Minta Portofolio Lengkap
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
@@ -89,21 +90,21 @@ const Portfolio = () => {
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
                   src={p.img}
-                  alt={`Contoh rumah gaya ${p.title}`}
+                  alt={`Proyek rumah gaya ${p.title} oleh Timur Design`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] uppercase tracking-luxe text-white/85 backdrop-blur-md">
-                  <Palette className="h-3 w-3 text-[hsl(43,74%,55%)]" />
-                  Gaya Desain
+                <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 border border-emerald-400/30 bg-emerald-500/15 px-2.5 py-1 text-[10px] uppercase tracking-luxe text-emerald-200 backdrop-blur-md">
+                  <CheckCircle2 className="h-3 w-3" />
+                  Proyek Selesai
                 </span>
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="flex items-end justify-between gap-3">
                   <div>
                     <p className="text-[10px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-                      Referensi · {p.size}
+                      Gaya · {p.size}
                     </p>
                     <h3 className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
                       {p.title}
