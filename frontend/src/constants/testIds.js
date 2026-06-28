@@ -35,10 +35,6 @@ export const PORTFOLIO = {
   card: "portfolio-card",
 };
 
-export const COVERAGE = {
-  section: "coverage-section",
-  card: "coverage-card",
-};
 
 export const WHY = {
   section: "why-section",

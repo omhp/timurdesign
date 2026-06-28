@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="17.518" timestamp="2026-06-28T06:55:50.993827+00:00" hostname="agent-env-d6b5c4ee-9336-4c38-97e4-1cb29697bd14"><testcase classname="tests.test_iteration5_regression" name="test_estimate_basic" time="17.018" /></testsuite></testsuites>

@@ -189,7 +189,7 @@ const Hero = () => {
                 data-testid={HERO.ctaSecondary}
                 className="group inline-flex items-center gap-2 px-2 py-2 text-sm uppercase tracking-luxe text-white/70 transition-colors hover:text-white"
               >
-                Hitung Estimasi (AI)
+                Hitung Estimasi
                 <span className="ml-1 inline-block h-px w-8 bg-white/40 transition-all duration-300 group-hover:w-12 group-hover:bg-[hsl(43,74%,55%)]" />
               </a>
             </motion.div>

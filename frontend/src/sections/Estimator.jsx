@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react";
-import axios from "axios";
 import {
   Sparkles,
   Loader2,
@@ -9,6 +8,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { SERVICE_CITIES, buildWaUrl } from "../constants/brand";
+import { computeEstimate } from "../lib/estimator";
 
 const ESTIMATOR_IDS = {
   section: "estimator-section",
@@ -17,9 +17,6 @@ const ESTIMATOR_IDS = {
   result: "estimator-result",
   ctaWa: "estimator-cta-wa",
 };
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
 
 const projectTypes = [
   { value: "bangun_renovasi", label: "Bangun / Renovasi Rumah" },
@@ -79,25 +76,21 @@ const Estimator = () => {
       return;
     }
     setLoading(true);
-    try {
-      const payload = {
-        ...form,
-        area_m2: Number(form.area_m2),
-        floors: Number(form.floors),
-      };
-      const { data } = await axios.post(`${API}/estimate`, payload, {
-        timeout: 90000,
-      });
-      setResult(data);
-    } catch (err) {
-      const msg =
-        err?.response?.data?.detail ||
-        err?.message ||
-        "Gagal mengambil estimasi. Coba lagi.";
-      setError(typeof msg === "string" ? msg : "Gagal mengambil estimasi.");
-    } finally {
-      setLoading(false);
-    }
+    // Simulasi kalkulasi singkat agar terasa "powered by"
+    setTimeout(() => {
+      try {
+        const data = computeEstimate({
+          ...form,
+          area_m2: Number(form.area_m2),
+          floors: Number(form.floors),
+        });
+        setResult(data);
+      } catch (err) {
+        setError("Gagal menghitung estimasi. Coba lagi.");
+      } finally {
+        setLoading(false);
+      }
+    }, 600);
   };
 
   const waMessage = useMemo(() => {
@@ -110,7 +103,7 @@ const Estimator = () => {
       ? `\n(${result.savings_percent}% lebih hemat dari rata-rata pasar)\n`
       : "\n";
     return (
-      `Halo Timur Design, saya sudah pakai kalkulator AI di website.\n\n` +
+              `Halo Timur Design, saya sudah pakai kalkulator estimasi di website.\n\n` +
       `Proyek: ${proj}\n` +
       `Kota: ${result.city}\n` +
       `Luas: ${result.area_m2} m² (${result.floors} lantai)\n` +
@@ -142,7 +135,7 @@ const Estimator = () => {
             <div className="inline-flex items-center gap-2 border border-[hsl(43,74%,49%,0.35)] bg-black/30 px-3 py-1.5 backdrop-blur-md">
               <Sparkles className="h-3.5 w-3.5 text-[hsl(43,74%,55%)]" />
               <span className="text-[10px] uppercase tracking-luxe text-white/85">
-                Powered by AI
+                Kalkulator Cerdas
               </span>
             </div>
             <h2 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
@@ -150,9 +143,9 @@ const Estimator = () => {
               <span className="italic text-[hsl(43,74%,55%)]">30 detik.</span>
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/65 sm:text-base">
-              Isi 5 input singkat. AI kami akan keluarkan rentang biaya, breakdown
-              per kategori, durasi pengerjaan, dan langkah selanjutnya — semua
-              dalam Rupiah, dengan asumsi pasar Indonesia terkini.
+              Isi 5 input singkat. Kalkulator kami akan keluarkan rentang biaya,
+              breakdown per kategori, durasi pengerjaan, dan langkah selanjutnya
+              — semua dalam Rupiah, dengan asumsi pasar Indonesia terkini.
             </p>
             <ul className="mt-7 space-y-3 text-sm text-white/65">
               {[
@@ -306,7 +299,7 @@ const Estimator = () => {
                       {loading ? (
                         <>
                           <Loader2 className="h-4 w-4 animate-spin" />
-                          Menghitung dengan AI…
+                          Menghitung…
                         </>
                       ) : (
                         <>

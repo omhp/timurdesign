@@ -51,7 +51,7 @@ const Footer = () => {
             <ul className="mt-5 space-y-3 text-sm text-white/70">
               {[
                 ["Layanan", "#layanan"],
-                ["Estimasi AI", "#estimasi"],
+                ["Estimasi Biaya", "#estimasi"],
                 ["Portofolio", "#portofolio"],
                 ["Artikel", "#artikel"],
                 ["Proses", "#proses"],
