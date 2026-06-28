@@ -119,27 +119,13 @@ const Hero = () => {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           {/* LEFT — content */}
           <div className="lg:col-span-7">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0}
-              data-testid={HERO.badge}
-              className="inline-flex items-center gap-3 rounded-none border border-[hsl(43,74%,49%,0.35)] bg-black/30 px-4 py-2 backdrop-blur-md"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(43,74%,55%)] shadow-[0_0_12px_hsl(43,74%,55%)]" />
-              <span className="text-[11px] uppercase tracking-luxe text-white/85">
-                Tepat Waktu &amp; Tepat Anggaran
-              </span>
-            </motion.div>
-
             <motion.h1
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              custom={1}
+              custom={0}
               data-testid={HERO.headline}
-              className="mt-8 font-display text-5xl font-bold leading-[1.05] tracking-tight text-balance text-white sm:text-6xl lg:text-[5.25rem]"
+              className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-balance text-white sm:text-6xl lg:text-[5.25rem]"
             >
               Bangun Rumah Impian
               <br />
@@ -155,7 +141,7 @@ const Hero = () => {
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              custom={2}
+              custom={1}
               data-testid={HERO.subHeadline}
               className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl"
             >
@@ -168,7 +154,7 @@ const Hero = () => {
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              custom={3}
+              custom={2}
               className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
             >
               <a
@@ -206,7 +192,7 @@ const Hero = () => {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            custom={4}
+            custom={3}
             className="lg:col-span-5"
           >
             <div className="relative rounded-none border border-white/10 bg-black/40 p-7 backdrop-blur-xl shadow-[0_8px_60px_-15px_rgba(0,0,0,0.6)]">
