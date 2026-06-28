@@ -263,7 +263,7 @@ async def create_estimate(req: EstimateRequest):
         total_high=int(data["total_high"]),
         competitor_avg_low=int(data.get("competitor_avg_low", data["total_low"])),
         competitor_avg_high=int(data.get("competitor_avg_high", data["total_high"])),
-        savings_percent=max(0, min(20, int(data.get("savings_percent", 10)))),
+        savings_percent=max(5, min(20, int(data.get("savings_percent", 10)))),
         duration_months_low=int(data["duration_months_low"]),
         duration_months_high=int(data["duration_months_high"]),
         breakdown=breakdown,

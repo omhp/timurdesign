@@ -105,15 +105,19 @@ const Estimator = () => {
     const proj =
       projectTypes.find((p) => p.value === result.project_type)?.label ||
       result.project_type;
+    const hasSavings = result.competitor_avg_low > result.total_low;
+    const savingsLine = hasSavings
+      ? `\n(${result.savings_percent}% lebih hemat dari rata-rata pasar)\n`
+      : "\n";
     return (
       `Halo Timur Design, saya sudah pakai kalkulator AI di website.\n\n` +
       `Proyek: ${proj}\n` +
       `Kota: ${result.city}\n` +
       `Luas: ${result.area_m2} m² (${result.floors} lantai)\n` +
       `Kualitas: ${result.quality}\n` +
-      `Estimasi: ${formatIDR(result.total_low)} – ${formatIDR(result.total_high)}\n` +
-      `(${result.savings_percent}% lebih hemat dari rata-rata pasar)\n\n` +
-      `Saya ingin konsultasi lebih lanjut.`
+      `Estimasi: ${formatIDR(result.total_low)} – ${formatIDR(result.total_high)}` +
+      savingsLine +
+      `\nSaya ingin konsultasi lebih lanjut.`
     );
   }, [result]);
 
