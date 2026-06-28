@@ -3,42 +3,42 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { PORTFOLIO } from "../constants/testIds";
 import { buildWaUrl } from "../constants/brand";
 
-// Portfolio of completed projects, titled by design style.
-// Photos: front-facade (tampak depan) of each style.
+// Portfolio of completed projects — photos taken in Indonesia,
+// titled with Indonesian residential context.
 const projects = [
   {
-    title: "Tropis Modern",
-    desc: "Atap miring, banyak bukaan, material kayu & batu alam.",
+    title: "Rumah Modern 2 Lantai",
+    desc: "Hunian modern bertingkat dengan fasad bersih — cocok untuk kavling perkotaan Indonesia.",
     size: "240 m²",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Minimalis Modern",
-    desc: "Garis tegas, warna netral, ruang fungsional tanpa hiasan berlebih.",
+    title: "Rumah Minimalis Putih",
+    desc: "Minimalis fungsional, dinding putih bersih — banyak dipilih keluarga muda di kota besar.",
     size: "180 m²",
-    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1608387371413-f2566ac510e0?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Industrial",
-    desc: "Gaya kantor / ruang kerja dengan bata ekspos, baja, dan kesan urban.",
-    size: "210 m²",
-    img: "https://images.unsplash.com/photo-1758380388980-019b6c575b41?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Skandinavia",
-    desc: "Kayu hangat, garis sederhana, atap miring — disesuaikan untuk iklim Indonesia.",
+    title: "Rumah Klasik dengan Teras",
+    desc: "Rumah dengan pagar, teras, dan halaman — gaya khas perumahan menengah Indonesia.",
     size: "150 m²",
-    img: "https://images.unsplash.com/photo-1704307023984-813727deade9?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1691940834294-7b07f3b39830?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Mediterania",
-    desc: "Lengkungan, dinding putih, atap genteng terracotta khas Eropa selatan.",
+    title: "Rumah Tropis Sederhana",
+    desc: "Hunian sederhana dengan halaman luas — cocok untuk kawasan tropis Indonesia.",
+    size: "120 m²",
+    img: "https://images.unsplash.com/photo-1714621488914-a245a8089213?auto=format&fit=crop&w=1200&q=70",
+  },
+  {
+    title: "Rumah Bertingkat Modern",
+    desc: "Hunian berkelas dengan elemen tower kecil — gaya rumah elit di perumahan Indonesia.",
     size: "320 m²",
-    img: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1735461932749-e602a9f6fc82?auto=format&fit=crop&w=1200&q=70",
   },
   {
     title: "Villa Bali Tradisional",
-    desc: "Atap ilalang, ornamen ukir, dan material alami khas budaya Bali.",
+    desc: "Villa beratap ilalang khas Bali — perpaduan alam tropis dan budaya Indonesia.",
     size: "260 m²",
     img: "https://images.unsplash.com/photo-1710563138874-4bac91c14e51?auto=format&fit=crop&w=1200&q=70",
   },
@@ -62,9 +62,9 @@ const Portfolio = () => {
               <span className="italic text-white/80">bukan janji manis.</span>
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-              Beberapa proyek yang sudah kami selesaikan — dengan beragam gaya,
-              mulai dari Tropis Modern hingga Villa Bali Tradisional. Lihat
-              referensi yang paling cocok dengan selera Anda.
+              Beberapa proyek rumah yang sudah kami selesaikan untuk keluarga
+              Indonesia — dari rumah minimalis di kota sampai villa tradisional
+              di Bali.
             </p>
           </div>
           <a
@@ -90,7 +90,7 @@ const Portfolio = () => {
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
                   src={p.img}
-                  alt={`Proyek rumah gaya ${p.title} oleh Timur Design`}
+                  alt={`Proyek ${p.title} oleh Timur Design`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -104,7 +104,7 @@ const Portfolio = () => {
                 <div className="flex items-end justify-between gap-3">
                   <div>
                     <p className="text-[10px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-                      Gaya · {p.size}
+                      Hunian · {p.size}
                     </p>
                     <h3 className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
                       {p.title}
