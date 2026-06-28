@@ -16,12 +16,7 @@ import { HERO } from "../constants/testIds";
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1679364297777-1db77b6199be?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBob21lJTIwZXh0ZXJpb3IlMjBkdXNrfGVufDB8fHx8MTc4MjYyNDgyM3ww&ixlib=rb-4.1.0&q=85";
 
-// WhatsApp number placeholder — replace with real number when available
-const WHATSAPP_URL =
-  "https://wa.me/6281234567890?text=" +
-  encodeURIComponent(
-    "Halo Timur Design, saya tertarik konsultasi gratis untuk bangun/renovasi rumah."
-  );
+import { WHATSAPP_URL, PHONE_DISPLAY, SERVICE_CITIES } from "../constants/brand";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -90,7 +85,7 @@ const Hero = () => {
             data-testid={HERO.logo}
             className="font-display text-2xl font-bold tracking-[0.18em] text-white"
           >
-            TIMUR<span className="text-[hsl(43,74%,55%)]">.</span>DESIGN
+            timurdesign<span className="text-[hsl(43,74%,55%)]">.</span>com
           </div>
           <nav className="hidden items-center gap-10 text-sm text-white/70 md:flex">
             <a href="#layanan" className="hover:text-white transition-colors">
@@ -108,11 +103,11 @@ const Hero = () => {
           </nav>
           <a
             data-testid={HERO.navContact}
-            href="tel:+6281234567890"
+            href={`tel:+${"6282226817232"}`}
             className="hidden items-center gap-2 rounded-none border border-white/15 px-4 py-2 text-xs uppercase tracking-luxe text-white/80 transition-colors hover:border-[hsl(43,74%,55%)] hover:text-white md:inline-flex"
           >
             <Phone className="h-3.5 w-3.5" />
-            +62 812-3456-7890
+            {PHONE_DISPLAY}
           </a>
         </div>
         <div aria-hidden className="divider-gold mx-auto h-px max-w-7xl" />
@@ -208,13 +203,36 @@ const Hero = () => {
               </a>
             </motion.div>
 
-            {/* Trust elements row */}
+            {/* Service cities row */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
               animate="show"
               custom={4}
-              className="mt-12 flex flex-col gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:gap-10"
+              className="mt-10 flex flex-wrap items-center gap-2"
+            >
+              <span className="mr-2 text-[10px] uppercase tracking-luxe text-white/45">
+                Melayani —
+              </span>
+              {SERVICE_CITIES.map((c) => (
+                <span
+                  key={c.name}
+                  data-testid={HERO.cityPill}
+                  className="inline-flex items-center gap-1.5 border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-luxe text-white/75 backdrop-blur-md"
+                >
+                  <span className="h-1 w-1 rounded-full bg-[hsl(43,74%,55%)]" />
+                  {c.name}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* Trust elements row */}
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={5}
+              className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:gap-10"
             >
               <div className="flex items-center gap-3" data-testid={HERO.trustElement}>
                 <div className="flex -space-x-2">
