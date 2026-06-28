@@ -22,11 +22,10 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const projectTypes = [
-  { value: "bangun_baru", label: "Bangun Baru" },
-  { value: "renovasi", label: "Renovasi" },
+  { value: "bangun_renovasi", label: "Bangun / Renovasi Rumah" },
+  { value: "arsitek", label: "Jasa Arsitek (Rumah/Villa/Toko/Kantor)" },
   { value: "interior", label: "Desain Interior" },
-  { value: "kitchen_set", label: "Kitchen Set" },
-  { value: "eksterior", label: "Eksterior / Fasad" },
+  { value: "eksterior", label: "Desain Eksterior / Fasad" },
 ];
 
 const qualities = [
@@ -35,12 +34,7 @@ const qualities = [
   { value: "premium", label: "Premium" },
 ];
 
-const cities = [
-  ...SERVICE_CITIES.map((c) => c.name),
-  "Jakarta",
-  "Yogyakarta",
-  "Lainnya",
-];
+const cities = SERVICE_CITIES.map((c) => c.name);
 
 const formatIDR = (n) =>
   "Rp " + Number(n || 0).toLocaleString("id-ID");
@@ -60,7 +54,7 @@ const inputCls =
 
 const Estimator = () => {
   const [form, setForm] = useState({
-    project_type: "bangun_baru",
+    project_type: "bangun_renovasi",
     city: "Bali",
     area_m2: 100,
     floors: 1,
@@ -117,7 +111,8 @@ const Estimator = () => {
       `Kota: ${result.city}\n` +
       `Luas: ${result.area_m2} m² (${result.floors} lantai)\n` +
       `Kualitas: ${result.quality}\n` +
-      `Estimasi: ${formatIDR(result.total_low)} – ${formatIDR(result.total_high)}\n\n` +
+      `Estimasi: ${formatIDR(result.total_low)} – ${formatIDR(result.total_high)}\n` +
+      `(${result.savings_percent}% lebih hemat dari rata-rata pasar)\n\n` +
       `Saya ingin konsultasi lebih lanjut.`
     );
   }, [result]);
@@ -329,7 +324,7 @@ const Estimator = () => {
                   <div className="flex flex-col gap-2 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                       <p className="text-[10px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-                        Perkiraan Total
+                        Harga Timur Design
                       </p>
                       <p className="mt-2 font-display text-3xl font-bold leading-none text-white sm:text-4xl">
                         {formatIDR(result.total_low)}
@@ -348,6 +343,41 @@ const Estimator = () => {
                       </p>
                     </div>
                   </div>
+
+                  {/* Competitor comparison */}
+                  {result.competitor_avg_low > result.total_low && (
+                    <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      <div className="border border-white/10 bg-black/20 p-4">
+                        <p className="text-[10px] uppercase tracking-luxe text-white/45">
+                          Rata-Rata Pasar
+                        </p>
+                        <p className="mt-2 text-sm font-semibold text-white/55 line-through">
+                          {formatIDR(result.competitor_avg_low)} –{" "}
+                          {formatIDR(result.competitor_avg_high)}
+                        </p>
+                      </div>
+                      <div className="border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)] p-4">
+                        <p className="text-[10px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
+                          Harga Anda Hari Ini
+                        </p>
+                        <p className="mt-2 text-sm font-semibold text-white">
+                          {formatIDR(result.total_low)} –{" "}
+                          {formatIDR(result.total_high)}
+                        </p>
+                      </div>
+                      <div className="border border-emerald-400/30 bg-emerald-400/5 p-4">
+                        <p className="text-[10px] uppercase tracking-luxe text-emerald-300">
+                          Anda Hemat
+                        </p>
+                        <p className="mt-2 font-display text-2xl font-bold leading-none text-emerald-200">
+                          {result.savings_percent}%
+                        </p>
+                        <p className="mt-1 text-[11px] text-white/55">
+                          ≈ {formatIDR(result.competitor_avg_high - result.total_high)}
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   <p className="mt-6 text-sm leading-relaxed text-white/75">
                     {result.summary}

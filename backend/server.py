@@ -48,8 +48,8 @@ class StatusCheckCreate(BaseModel):
 
 
 class EstimateRequest(BaseModel):
-    project_type: Literal["bangun_baru", "renovasi", "interior", "kitchen_set", "eksterior"]
-    city: str
+    project_type: Literal["bangun_renovasi", "arsitek", "interior", "eksterior"]
+    city: Literal["Bali", "Surabaya", "Malang", "Pontianak"]
     area_m2: float = Field(gt=0, le=5000)
     floors: int = Field(ge=1, le=5)
     quality: Literal["standar", "menengah", "premium"]
@@ -76,6 +76,9 @@ class EstimateResponse(BaseModel):
     cost_per_m2_high: int
     total_low: int
     total_high: int
+    competitor_avg_low: int
+    competitor_avg_high: int
+    savings_percent: int
     duration_months_low: int
     duration_months_high: int
     breakdown: List[EstimateBreakdownItem]
@@ -110,11 +113,10 @@ async def get_status_checks():
 
 
 PROJECT_TYPE_LABEL = {
-    "bangun_baru": "Bangun rumah baru",
-    "renovasi": "Renovasi rumah",
-    "interior": "Desain interior",
-    "kitchen_set": "Pembuatan kitchen set",
-    "eksterior": "Desain eksterior / fasad",
+    "bangun_renovasi": "Bangun / Renovasi Rumah",
+    "arsitek": "Jasa Arsitek (Rumah / Villa / Toko / Kantor)",
+    "interior": "Desain Interior",
+    "eksterior": "Desain Eksterior / Fasad",
 }
 
 QUALITY_LABEL = {
@@ -127,16 +129,34 @@ QUALITY_LABEL = {
 def _build_system_prompt() -> str:
     return (
         "Anda adalah ahli estimasi biaya konstruksi rumah di Indonesia tahun 2025-2026 "
-        "untuk perusahaan kontraktor 'Timur Design' yang melayani Bali, Surabaya, Malang, "
-        "Pontianak, dan kota-kota lain di Indonesia. Berikan estimasi BIAYA REALISTIS "
-        "dalam Rupiah (IDR) berdasarkan harga pasar terkini. Anda HANYA boleh membalas "
-        "dalam format JSON valid TANPA blok kode markdown, tanpa teks pembuka/penutup. "
-        "Semua nilai uang adalah integer dalam Rupiah (tanpa desimal, tanpa pemisah). "
-        "Gunakan rentang biaya/m² yang umum: bangun baru standar Rp 4-5jt, menengah "
-        "Rp 5-7jt, premium Rp 7-12jt+. Renovasi 60-80% dari bangun baru tergantung lingkup. "
-        "Interior Rp 2-6jt/m². Kitchen set Rp 4-12jt per meter lari. Eksterior/fasad "
-        "Rp 1.5-4jt/m². Sesuaikan ±10-20% untuk lokasi (Bali & Jakarta lebih mahal, "
-        "Pontianak/Malang sedikit lebih murah). Untuk multi-lantai, tambahkan +10% per lantai."
+        "untuk perusahaan kontraktor 'Timur Design' yang BERPOSISI sebagai kontraktor "
+        "dengan HARGA LEBIH KOMPETITIF dari rata-rata pasar — efisien tanpa mengorbankan "
+        "kualitas. Anda melayani Bali, Surabaya, Malang, dan Pontianak. "
+        "Berikan estimasi BIAYA REALISTIS dalam Rupiah (IDR) berdasarkan harga pasar "
+        "terkini, LALU tawarkan harga Timur Design yang 8-15% LEBIH MURAH dari rata-rata "
+        "kompetitor di kota tersebut. Anda HANYA boleh membalas dalam format JSON valid "
+        "TANPA blok kode markdown, tanpa teks pembuka/penutup. Semua nilai uang adalah "
+        "integer dalam Rupiah (tanpa desimal, tanpa pemisah).\n\n"
+        "REFERENSI HARGA PASAR (kompetitor, sebelum diskon Timur Design):\n"
+        "• Bangun rumah baru: standar Rp 4.2–5.2jt/m², menengah Rp 5.5–7.5jt/m², "
+        "premium Rp 8–13jt/m².\n"
+        "• Renovasi: 60–80% dari bangun baru tergantung lingkup.\n"
+        "• Jasa Arsitek (desain murni): Rp 150–400rb/m² untuk paket dasar, Rp 400–"
+        "900rb/m² untuk paket lengkap (3D + gambar teknis).\n"
+        "• Desain Interior: Rp 2–6jt/m² (termasuk furniture).\n"
+        "• Desain Eksterior / Fasad: Rp 1.5–4jt/m² untuk eksekusi.\n"
+        "PENYESUAIAN LOKASI: Bali +10-15% (logistik & permit), Surabaya baseline, "
+        "Malang -5%, Pontianak -3% (tapi material impor sedikit lebih mahal).\n"
+        "Multi-lantai: +8-12% per lantai tambahan.\n\n"
+        "RUMUS HARGA TIMUR DESIGN:\n"
+        "• competitor_avg_low/high = harga pasar standar untuk parameter tsb.\n"
+        "• Diskon Timur Design = 10-13% (rata-rata 12%). Bisa sampai 15% untuk kualitas "
+        "standar dengan volume besar (>200 m²).\n"
+        "• total_low = competitor_avg_low * (1 - diskon).\n"
+        "• total_high = competitor_avg_high * (1 - diskon).\n"
+        "• savings_percent = persen diskon (integer 8-15).\n"
+        "Pastikan harga Timur Design TERLIHAT lebih murah tapi tetap MASUK AKAL — jangan "
+        "ekstrem sampai mencurigakan. Sebutkan keunggulan harga ini dalam summary."
     )
 
 
@@ -147,8 +167,11 @@ def _build_user_prompt(req: EstimateRequest) -> str:
         "{\n"
         '  "cost_per_m2_low": int,\n'
         '  "cost_per_m2_high": int,\n'
-        '  "total_low": int,\n'
-        '  "total_high": int,\n'
+        '  "total_low": int,         // HARGA TIMUR DESIGN (sudah diskon)\n'
+        '  "total_high": int,        // HARGA TIMUR DESIGN (sudah diskon)\n'
+        '  "competitor_avg_low": int,  // Harga rata-rata kompetitor di kota tsb\n'
+        '  "competitor_avg_high": int, // Harga rata-rata kompetitor di kota tsb\n'
+        '  "savings_percent": int,   // Persen hemat vs kompetitor (8-15)\n'
         '  "duration_months_low": int,\n'
         '  "duration_months_high": int,\n'
         '  "breakdown": [\n'
@@ -160,7 +183,7 @@ def _build_user_prompt(req: EstimateRequest) -> str:
         "  ],\n"
         '  "assumptions": ["3-5 asumsi penting dalam Bahasa Indonesia sederhana, hindari istilah teknis"],\n'
         '  "next_steps": ["3 langkah konkret yang dapat dilakukan pemilik rumah, ditulis sederhana"],\n'
-        '  "summary": "2-3 kalimat ringkasan dalam Bahasa Indonesia yang ramah, sederhana, mudah dipahami orang awam"\n'
+        '  "summary": "2-3 kalimat ringkasan dalam Bahasa Indonesia yang ramah & sederhana. WAJIB sebutkan persentase hemat vs harga pasar kompetitor."\n'
         "}\n\n"
         f"Detail proyek:\n"
         f"- Tipe proyek: {PROJECT_TYPE_LABEL[req.project_type]}\n"
@@ -169,11 +192,18 @@ def _build_user_prompt(req: EstimateRequest) -> str:
         f"- Jumlah lantai: {req.floors}\n"
         f"- Kualitas bangunan: {QUALITY_LABEL[req.quality]}\n"
         f"- Catatan tambahan: {req.notes or '-'}\n\n"
-        "Pastikan total_low == jumlah semua breakdown.low, dan total_high == jumlah semua "
-        "breakdown.high. Pastikan cost_per_m2_low * area_m2 ≈ total_low (untuk multi-lantai, "
-        "kalikan dengan jumlah lantai). Gunakan angka bulat yang masuk akal di pasaran Indonesia. "
-        "PENTING: Gunakan bahasa Indonesia yang sederhana dan mudah dipahami orang awam. "
-        "Hindari istilah teknis seperti 'MEP', 'addendum', 'site engineer', 'finishing', "
+        "PENTING — TENTANG ANGKA:\n"
+        "1. competitor_avg_low/high = harga PASAR sebelum diskon (sebagai pembanding).\n"
+        "2. total_low/high = HARGA TIMUR DESIGN yang LEBIH MURAH (sudah diskon 8-15%).\n"
+        "3. total_low = competitor_avg_low × (1 - savings_percent/100), dibulatkan ke "
+        "ribuan terdekat.\n"
+        "4. total_high = competitor_avg_high × (1 - savings_percent/100), dibulatkan.\n"
+        "5. cost_per_m2_low/high = harga Timur Design dibagi luas (× lantai). \n"
+        "6. Jumlah breakdown.low harus = total_low; jumlah breakdown.high harus = total_high.\n"
+        "7. savings_percent realistis 8-15 (rata-rata 10-12).\n\n"
+        "PENTING — TENTANG BAHASA:\n"
+        "Gunakan Bahasa Indonesia sederhana yang mudah dipahami orang awam. Hindari "
+        "istilah teknis seperti 'MEP', 'addendum', 'site engineer', 'finishing', "
         "'ergonomis'. Ganti dengan bahasa sehari-hari."
     )
 
@@ -231,6 +261,9 @@ async def create_estimate(req: EstimateRequest):
         cost_per_m2_high=int(data["cost_per_m2_high"]),
         total_low=int(data["total_low"]),
         total_high=int(data["total_high"]),
+        competitor_avg_low=int(data.get("competitor_avg_low", data["total_low"])),
+        competitor_avg_high=int(data.get("competitor_avg_high", data["total_high"])),
+        savings_percent=max(0, min(20, int(data.get("savings_percent", 10)))),
         duration_months_low=int(data["duration_months_low"]),
         duration_months_high=int(data["duration_months_high"]),
         breakdown=breakdown,

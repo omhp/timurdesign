@@ -78,20 +78,20 @@ const Services = () => {
                 className="group relative flex flex-col items-center bg-[hsl(220,15%,5%)] p-7 text-center transition-colors duration-300 hover:bg-[hsl(220,15%,7%)]"
               >
                 <ArrowUpRight className="absolute right-5 top-5 h-5 w-5 text-white/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(43,74%,55%)]" />
-                <div className="mt-2 flex h-12 w-12 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)] transition-all duration-300 group-hover:border-[hsl(43,74%,55%)] group-hover:bg-[hsl(43,74%,49%,0.15)]">
-                  <Icon className="h-5 w-5 text-[hsl(43,74%,55%)]" />
+                <div className="mt-2 flex h-14 w-14 items-center justify-center border border-[hsl(43,74%,49%,0.4)] bg-[hsl(43,74%,49%,0.08)] transition-all duration-300 group-hover:border-[hsl(43,74%,55%)] group-hover:bg-[hsl(43,74%,49%,0.15)]">
+                  <Icon className="h-6 w-6 text-[hsl(43,74%,55%)]" />
                 </div>
-                <h3 className="mt-6 font-display text-xl font-semibold text-white">
+                <h3 className="mt-6 font-display text-2xl font-semibold leading-tight text-white sm:text-[1.625rem] lg:text-2xl">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">
+                <p className="mt-4 text-base leading-relaxed text-white/65 sm:text-[15px]">
                   {s.desc}
                 </p>
-                <ul className="mt-6 flex flex-col items-center space-y-2">
+                <ul className="mt-6 flex flex-col items-center space-y-2.5">
                   {s.points.map((p) => (
                     <li
                       key={p}
-                      className="flex items-center gap-2 text-xs text-white/70"
+                      className="flex items-center gap-2 text-sm text-white/75"
                     >
                       <span className="h-1 w-1 rounded-full bg-[hsl(43,74%,55%)]" />
                       {p}
