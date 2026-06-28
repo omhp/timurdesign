@@ -27,7 +27,7 @@ Full-stack landing page for "Timur Design" (brand: timurdesign.com).
 3. **WhyUs** — 5 "Tanpa Drama" cards
 4. **Process** — 5 langkah
 5. **Estimator (AI)** — Form 6 input → POST /api/estimate → Claude 4.5 → JSON estimate (low/high IDR, breakdown 5 kategori, durasi, asumsi, next steps, summary) → WhatsApp CTA dengan summary
-6. **Portfolio** — 6 project cards across 4 cities
+6. **Gaya Desain** (sebelumnya "Portfolio") — 6 kartu edukatif gaya rumah populer di Indonesia: Minimalis, Modern Tropis, Mediterania, Skandinavia, Industrialis, Klasik. Disclaimer "ilustrasi referensi, bukan portofolio proyek". Anchor: `#gaya-desain`.
 7. **Testimonials** — 3 reviews
 8. **FAQ** — 6 accordion
 9. **CTA Band** — Final WA push

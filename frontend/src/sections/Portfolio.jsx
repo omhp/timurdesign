@@ -1,53 +1,54 @@
 import React from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import { PORTFOLIO } from "../constants/testIds";
 import { buildWaUrl } from "../constants/brand";
 
-// Portfolio of completed projects — photos taken in Indonesia,
-// titled with Indonesian residential context.
-const projects = [
+// "Gaya Desain Rumah Populer di Indonesia"
+// Educational showcase of popular residential design styles.
+// Images are illustrative references of each style — bukan portofolio proyek.
+const styles = [
   {
-    title: "Rumah Modern 2 Lantai",
-    desc: "Hunian modern bertingkat dengan fasad bersih — cocok untuk kavling perkotaan Indonesia.",
-    size: "240 m²",
+    title: "Minimalis",
+    tagline: "Bersih, fungsional, bebas ornamen",
+    desc: "Garis tegas, warna netral, dan ruang yang terasa lapang. Cocok untuk keluarga muda yang suka tampilan modern dan mudah dirawat.",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=70",
+  },
+  {
+    title: "Modern Tropis",
+    tagline: "Adem, terbuka, ramah iklim Indonesia",
+    desc: "Bukaan lebar, ventilasi silang, dan sentuhan kayu alami. Dirancang agar rumah tetap sejuk tanpa banyak bergantung pada AC.",
     img: "https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Rumah Minimalis Putih",
-    desc: "Minimalis fungsional, dinding putih bersih — banyak dipilih keluarga muda di kota besar.",
-    size: "180 m²",
-    img: "https://images.unsplash.com/photo-1608387371413-f2566ac510e0?auto=format&fit=crop&w=1200&q=70",
+    title: "Mediterania",
+    tagline: "Hangat, melengkung, khas Eropa Selatan",
+    desc: "Atap genteng terakota, lengkungan pintu, dan dinding berwarna krem. Memberi kesan rumah klasik yang hangat dan ramah.",
+    img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Rumah Klasik dengan Teras",
-    desc: "Rumah dengan pagar, teras, dan halaman — gaya khas perumahan menengah Indonesia.",
-    size: "150 m²",
-    img: "https://images.unsplash.com/photo-1691940834294-7b07f3b39830?auto=format&fit=crop&w=1200&q=70",
+    title: "Skandinavia",
+    tagline: "Terang, lapang, dominasi warna terang",
+    desc: "Palet putih dan kayu muda, pencahayaan natural maksimal, serta perabot sederhana. Membuat rumah terasa luas walau ukurannya sedang.",
+    img: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Rumah Tropis Sederhana",
-    desc: "Hunian sederhana dengan halaman luas — cocok untuk kawasan tropis Indonesia.",
-    size: "120 m²",
-    img: "https://images.unsplash.com/photo-1714621488914-a245a8089213?auto=format&fit=crop&w=1200&q=70",
+    title: "Industrialis",
+    tagline: "Tegas, jujur, ekspos material",
+    desc: "Beton ekspos, bata merah, dan pipa terbuka. Cocok untuk yang menyukai karakter kuat dan gaya rumah yang ‘berbeda’ dari tetangga.",
+    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=70",
   },
   {
-    title: "Rumah Bertingkat Modern",
-    desc: "Hunian berkelas dengan elemen tower kecil — gaya rumah elit di perumahan Indonesia.",
-    size: "320 m²",
-    img: "https://images.unsplash.com/photo-1735461932749-e602a9f6fc82?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Villa Bali Tradisional",
-    desc: "Villa beratap ilalang khas Bali — perpaduan alam tropis dan budaya Indonesia.",
-    size: "260 m²",
-    img: "https://images.unsplash.com/photo-1710563138874-4bac91c14e51?auto=format&fit=crop&w=1200&q=70",
+    title: "Klasik",
+    tagline: "Simetris, megah, kesan abadi",
+    desc: "Pilar, profil dinding, dan detail dekoratif yang terukur. Memberi kesan rumah berwibawa dan timeless untuk hunian keluarga besar.",
+    img: "https://images.unsplash.com/photo-1592595896616-c37162298647?auto=format&fit=crop&w=1200&q=70",
   },
 ];
 
 const Portfolio = () => {
   return (
     <section
-      id="proyek"
+      id="gaya-desain"
       data-testid={PORTFOLIO.section}
       className="relative bg-[hsl(220,15%,6%)] py-24 sm:py-32"
     >
@@ -55,62 +56,63 @@ const Portfolio = () => {
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="text-[11px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-              — Proyek Pilihan Kami
+              — Inspirasi Gaya Desain
             </p>
             <h2 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
-              Hasil kerja kami,{" "}
-              <span className="italic text-white/80">bukan janji manis.</span>
+              Gaya desain rumah{" "}
+              <span className="italic text-white/80">populer di Indonesia.</span>
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-              Beberapa proyek rumah yang sudah kami selesaikan untuk keluarga
-              Indonesia — dari rumah minimalis di kota sampai villa tradisional
-              di Bali.
+              Belum tahu mau pilih gaya yang mana? Ini enam gaya rumah yang
+              paling banyak diminati keluarga Indonesia. Kami bantu sesuaikan
+              dengan kebutuhan, lahan, dan anggaran Anda.
             </p>
           </div>
           <a
             href={buildWaUrl(
-              "Halo Timur Design, saya ingin lihat portofolio lengkap proyek."
+              "Halo Timur Design, saya ingin konsultasi pilihan gaya desain rumah."
             )}
             target="_blank"
             rel="noopener noreferrer"
+            data-testid="portfolio-consult-cta"
             className="group inline-flex items-center gap-2 border border-white/15 px-5 py-3 text-xs uppercase tracking-luxe text-white/80 transition-colors hover:border-[hsl(43,74%,55%)] hover:text-white"
           >
-            Minta Portofolio Lengkap
+            Konsultasi Gaya Desain
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
+          {styles.map((s) => (
             <article
-              key={p.title}
+              key={s.title}
               data-testid={PORTFOLIO.card}
               className="group relative overflow-hidden border border-white/10 bg-black/40"
             >
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
-                  src={p.img}
-                  alt={`Proyek ${p.title} oleh Timur Design`}
+                  src={s.img}
+                  alt={`Inspirasi gaya desain rumah ${s.title}`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 border border-emerald-400/30 bg-emerald-500/15 px-2.5 py-1 text-[10px] uppercase tracking-luxe text-emerald-200 backdrop-blur-md">
-                  <CheckCircle2 className="h-3 w-3" />
-                  Proyek Selesai
+                <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 border border-[hsl(43,74%,55%)]/40 bg-[hsl(43,74%,55%)]/15 px-2.5 py-1 text-[10px] uppercase tracking-luxe text-[hsl(43,74%,75%)] backdrop-blur-md">
+                  <Sparkles className="h-3 w-3" />
+                  Gaya Desain
                 </span>
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <div className="flex items-end justify-between gap-3">
                   <div>
                     <p className="text-[10px] uppercase tracking-luxe text-[hsl(43,74%,55%)]">
-                      Hunian · {p.size}
+                      {s.tagline}
                     </p>
                     <h3 className="mt-1 font-display text-xl font-semibold text-white sm:text-2xl">
-                      {p.title}
+                      {s.title}
                     </h3>
                     <p className="mt-1.5 max-w-xs text-xs leading-relaxed text-white/65">
-                      {p.desc}
+                      {s.desc}
                     </p>
                   </div>
                   <ArrowUpRight className="h-5 w-5 shrink-0 text-white/60 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[hsl(43,74%,55%)]" />
@@ -119,6 +121,11 @@ const Portfolio = () => {
             </article>
           ))}
         </div>
+
+        <p className="mt-10 text-center text-[11px] uppercase tracking-luxe text-white/40">
+          * Gambar di atas adalah ilustrasi referensi gaya desain, bukan
+          portofolio proyek.
+        </p>
       </div>
     </section>
   );
