@@ -40,7 +40,6 @@
   setHref("hero-wa", WA_DEFAULT);
   setHref("ctaband-wa", WA_DEFAULT);
   setHref("footer-wa", WA_DEFAULT);
-  setHref("floating-wa", WA_DEFAULT);
   setHref(
     "portfolio-wa",
     buildWa(
@@ -51,33 +50,6 @@
   // ============ Year ============
   var yr = document.getElementById("year");
   if (yr) yr.textContent = new Date().getFullYear();
-
-  // ============ Floating WhatsApp visibility on scroll ============
-  var floatBtn = document.getElementById("floating-wa");
-  var scrollTicking = false;
-  var floatShown = null; // tracks last-applied state to avoid redundant DOM writes
-  function applyScrollState() {
-    scrollTicking = false;
-    if (!floatBtn) return;
-    var shouldShow = window.scrollY > 600;
-    if (shouldShow === floatShown) return; // no DOM mutation -> no reflow
-    floatShown = shouldShow;
-    if (shouldShow) {
-      floatBtn.classList.remove("opacity-0", "translate-y-4", "pointer-events-none");
-      floatBtn.classList.add("opacity-100", "translate-y-0");
-    } else {
-      floatBtn.classList.add("opacity-0", "translate-y-4", "pointer-events-none");
-      floatBtn.classList.remove("opacity-100", "translate-y-0");
-    }
-  }
-  function onScroll() {
-    if (!scrollTicking) {
-      scrollTicking = true;
-      requestAnimationFrame(applyScrollState);
-    }
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  applyScrollState();
 
   // ============ SVG icon helper (inline strings) ============
   var ICON = {
